@@ -216,12 +216,14 @@
                         <p>⏰ Ежедневно 10:00 – 21:00</p>
                     </div>
                 </div>
+                
+                <!-- ===== ГОТОВАЯ ФОРМА С ТВОИМ ENDPOINT ===== -->
                 <div id="booking" class="contact-form">
                     <h3>Онлайн-запись</h3>
-                    <form id="tgForm">
-                        <input type="text" id="userName" placeholder="Ваше имя" required>
-                        <input type="tel" id="userPhone" placeholder="Телефон" required>
-                        <select id="userService" required>
+                    <form id="emailForm" action="https://formspree.io/f/xojzndgr" method="POST">
+                        <input type="text" name="name" placeholder="Ваше имя" required>
+                        <input type="tel" name="phone" placeholder="Телефон" required>
+                        <select name="service" required>
                             <option value="" disabled selected>Выберите услугу</option>
                             <option>Массаж тела</option>
                             <option>SPA-программы</option>
@@ -230,7 +232,9 @@
                             <option>Архитектура лица</option>
                             <option>Прочие услуги</option>
                         </select>
-                        <input type="text" id="userDate" placeholder="Желаемая дата и время">
+                        <input type="text" name="date" placeholder="Желаемая дата и время">
+                        <input type="hidden" name="_subject" value="Новая заявка с сайта МОНРЕПО">
+                        <input type="text" name="_gotcha" style="display:none">
                         <button type="submit">Отправить заявку</button>
                     </form>
                     <div id="formStatus" style="font-size:12px; margin-top:14px;"></div>
@@ -283,48 +287,39 @@
         }
     }
 
-    // ========== ОТПРАВКА В TELEGRAM (рабочий вариант с GET-запросом) ==========
-    // 👇👇👇 ВСТАВЬ СВОИ ДАННЫЕ СЮДА 👇👇👇
-    const BOT_TOKEN = 'ТВОЙ_ТОКЕН_БОТА';   // Замени на токен от @BotFather
-    const CHAT_ID = 'ТВОЙ_CHAT_ID';       // Замени на ID от @userinfobot
-    // 👆👆👆
-
-    const form = document.getElementById('tgForm');
-    if (form) {
-        form.addEventListener('submit', async function(e) {
+    // Асинхронная отправка формы на Formspree (без перезагрузки страницы)
+    const emailForm = document.getElementById('emailForm');
+    const formStatus = document.getElementById('formStatus');
+    
+    if (emailForm) {
+        emailForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const name = document.getElementById('userName').value.trim();
-            const phone = document.getElementById('userPhone').value.trim();
-            const service = document.getElementById('userService').value;
-            const date = document.getElementById('userDate').value.trim() || 'не указано';
+            formStatus.innerHTML = '⏳ Отправка...';
+            formStatus.style.color = '#1a6e5c';
             
-            const statusDiv = document.getElementById('formStatus');
-            statusDiv.innerHTML = '⏳ Отправка...';
-            statusDiv.style.color = '#1a6e5c';
-            
-            const message = `🆕 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n💆‍♂️ Услуга: ${service}\n📅 Дата/время: ${date}`;
-            
-            // GET-запрос (более надёжный)
-            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(message)}`;
+            const formData = new FormData(emailForm);
             
             try {
-                const response = await fetch(url);
-                const result = await response.json();
+                const response = await fetch(emailForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
                 
-                if (result.ok) {
-                    statusDiv.innerHTML = '✅ Заявка отправлена! Мы свяжемся с вами в течение 20 минут.';
-                    statusDiv.style.color = '#2e7d32';
-                    form.reset();
+                if (response.ok) {
+                    formStatus.innerHTML = '✅ Заявка отправлена! Мы свяжемся с вами в течение 20 минут.';
+                    formStatus.style.color = '#2e7d32';
+                    emailForm.reset();
                 } else {
-                    console.error('Telegram error:', result);
-                    statusDiv.innerHTML = '❌ Ошибка: ' + (result.description || 'проверьте токен и chat ID');
-                    statusDiv.style.color = '#c62828';
+                    const data = await response.json();
+                    formStatus.innerHTML = '❌ Ошибка: ' + (data.error || 'попробуйте ещё раз');
+                    formStatus.style.color = '#c62828';
                 }
             } catch (error) {
-                console.error('Network error:', error);
-                statusDiv.innerHTML = '❌ Ошибка сети. Проверьте интернет и консоль (F12).';
-                statusDiv.style.color = '#c62828';
+                console.error('Formspree error:', error);
+                formStatus.innerHTML = '❌ Ошибка сети. Попробуйте ещё раз.';
+                formStatus.style.color = '#c62828';
             }
         });
     }
