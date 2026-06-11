@@ -14,8 +14,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #fefcf5;
-            color: #4a5b4e;
+            background: linear-gradient(135deg, #ffffff 0%, #fff7ef 50%, #fef0e0 100%);
+            color: #2d4a3e;
             scroll-behavior: smooth;
             line-height: 1.5;
         }
@@ -27,12 +27,12 @@
         }
 
         .header {
-            background: rgba(255, 252, 245, 0.96);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid #e2e0d5;
+            border-bottom: 2px solid #c8dccf;
             padding: 18px 0;
         }
 
@@ -47,51 +47,50 @@
         .logo h1 {
             font-size: 2rem;
             letter-spacing: -0.5px;
-            font-weight: 700;
-            color: #7c8f6e;
+            font-weight: 800;
+            color: #1a6e5c;
             cursor: pointer;
         }
 
         .logo p {
             font-size: 0.7rem;
-            color: #a8b89a;
+            color: #6b9a89;
             letter-spacing: 2px;
         }
 
         .nav a {
             margin-left: 32px;
             text-decoration: none;
-            color: #6b7f5e;
+            color: #2d6a58;
             font-weight: 600;
             transition: 0.2s;
             cursor: pointer;
         }
 
         .nav a:hover {
-            color: #9b9e6b;
+            color: #1a6e5c;
         }
 
-        /* Hero — мягкий приглушённый фон */
         .hero {
-            background: #edf0e6;
+            background: linear-gradient(125deg, #e2f0ea 0%, #ffffff 80%);
             padding: 80px 0;
             text-align: center;
             border-radius: 0 0 56px 56px;
             margin-bottom: 50px;
-            border-bottom: 1px solid #dfe3d6;
+            border-bottom: 1px solid #c8dccf;
         }
 
         .hero h2 {
             font-size: 3.5rem;
-            font-weight: 700;
-            color: #5c6e4a;
+            font-weight: 800;
+            color: #1a6e5c;
         }
 
         .hero p {
             font-size: 1.3rem;
             max-width: 800px;
             margin: 20px auto 0;
-            color: #7c8f6e;
+            color: #4a7b6a;
         }
 
         .services-section {
@@ -101,9 +100,9 @@
         .section-title {
             text-align: center;
             font-size: 2.6rem;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 56px;
-            color: #7c8f6e;
+            color: #1a6e5c;
         }
 
         .services-grid {
@@ -116,10 +115,10 @@
             background: #ffffff;
             border-radius: 32px;
             overflow: hidden;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
             transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
             cursor: pointer;
-            border: 1px solid #e8ece1;
+            border: 1px solid #c8dccf;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s, border-color 0.35s;
@@ -132,8 +131,8 @@
 
         .service-card:hover {
             transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 30px 40px -12px rgba(100, 120, 80, 0.2);
-            border-color: #cbd5bf;
+            box-shadow: 0 30px 40px -12px rgba(26, 110, 92, 0.25);
+            border-color: #9bc6bb;
         }
 
         .service-img {
@@ -155,24 +154,24 @@
             font-size: 1.7rem;
             font-weight: 700;
             margin-bottom: 12px;
-            color: #7c8f6e;
+            color: #1a6e5c;
             transition: color 0.25s;
         }
 
         .service-card:hover .service-title {
-            color: #9b9e6b;
+            color: #0f8b72;
         }
 
         .service-desc {
-            color: #8fa08a;
+            color: #6b9a89;
             margin-bottom: 20px;
             line-height: 1.5;
         }
 
         .price-badge {
             font-weight: 600;
-            color: #7c8f6e;
-            background: #f0f3ea;
+            color: #1a6e5c;
+            background: #e0f0ea;
             display: inline-block;
             padding: 6px 18px;
             border-radius: 60px;
@@ -181,18 +180,17 @@
         }
 
         .service-card:hover .price-badge {
-            background: #e5eadc;
-            color: #9b9e6b;
+            background: #c8e0d6;
+            color: #0b5e4b;
         }
 
-        /* Блок характеристик — 6 пунктов ровно */
         .features-section {
             background: #ffffff;
             border-radius: 48px;
             padding: 60px 48px;
             margin: 40px 0;
-            border: 1px solid #e8ece1;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.02);
+            border: 1px solid #c8dccf;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease;
@@ -205,15 +203,15 @@
 
         .features-title {
             font-size: 2.2rem;
-            font-weight: 700;
-            color: #5c6e4a;
+            font-weight: 800;
+            color: #1a6e5c;
             text-align: center;
             margin-bottom: 16px;
         }
 
         .features-subtitle {
             text-align: center;
-            color: #8fa08a;
+            color: #6b9a89;
             font-size: 1.1rem;
             margin-bottom: 48px;
         }
@@ -227,42 +225,44 @@
         .feature-item {
             text-align: center;
             padding: 24px;
-            background: #fefcf7;
+            background: #fefaf5;
             border-radius: 32px;
             transition: all 0.3s ease;
+            border: 1px solid #f0ede5;
         }
 
         .feature-item:hover {
-            background: #fafaf5;
+            background: #ffffff;
             transform: translateY(-5px);
+            border-color: #c8dccf;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
         }
 
         .feature-number {
             font-size: 2.5rem;
             font-weight: 800;
-            color: #9b9e6b;
+            color: #1a6e5c;
             margin-bottom: 16px;
         }
 
         .feature-title {
             font-size: 1.4rem;
             font-weight: 700;
-            color: #5c6e4a;
+            color: #2d4a3e;
             margin-bottom: 12px;
         }
 
         .feature-desc {
-            color: #8fa08a;
+            color: #6b9a89;
             line-height: 1.5;
         }
 
-        /* Блок отзывов */
         .reviews-section {
             background: #ffffff;
             border-radius: 48px;
             padding: 60px 48px;
             margin: 40px 0;
-            border: 1px solid #e8ece1;
+            border: 1px solid #c8dccf;
             text-align: center;
             opacity: 0;
             transform: translateY(30px);
@@ -276,7 +276,7 @@
 
         .rating-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #9b9e6b, #b8b97a);
+            background: linear-gradient(135deg, #1a6e5c, #23967e);
             color: white;
             padding: 12px 32px;
             border-radius: 60px;
@@ -287,7 +287,7 @@
 
         .rating-stats {
             font-size: 1rem;
-            color: #8fa08a;
+            color: #6b9a89;
             margin-bottom: 40px;
         }
 
@@ -306,31 +306,32 @@
         .rating-percent {
             font-size: 2rem;
             font-weight: 800;
-            color: #7c8f6e;
+            color: #1a6e5c;
         }
 
         .rating-label {
-            color: #a8b89a;
+            color: #6b9a89;
             font-size: 0.9rem;
         }
 
         .yandex-button {
-            background: #eaead9;
+            background: #f5c542;
             border: none;
             padding: 16px 36px;
             border-radius: 60px;
             font-weight: 700;
             font-size: 1rem;
-            color: #5c6e4a;
+            color: #000000;
             cursor: pointer;
             transition: 0.2s;
             margin-top: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .yandex-button:hover {
-            background: #dfe2ce;
+            background: #e6b320;
             transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
         }
 
         .extra-services {
@@ -339,7 +340,7 @@
             backdrop-filter: blur(4px);
             border-radius: 48px;
             padding: 44px 36px;
-            border: 1px solid #e8ece1;
+            border: 1px solid #c8dccf;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease;
@@ -352,10 +353,10 @@
 
         .extra-title {
             font-size: 1.9rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 28px;
             text-align: center;
-            color: #7c8f6e;
+            color: #1a6e5c;
         }
 
         .extra-list {
@@ -372,13 +373,13 @@
             font-weight: 500;
             transition: all 0.2s;
             cursor: default;
-            color: #7c8f6e;
-            border: 1px solid #e8ece1;
+            color: #1a6e5c;
+            border: 1px solid #c8dccf;
         }
 
         .extra-item:hover {
-            background: #f0f3ea;
-            color: #9b9e6b;
+            background: #e0f0ea;
+            color: #0f8b72;
             transform: scale(1.02);
         }
 
@@ -388,7 +389,7 @@
             padding: 60px 0;
             border-radius: 48px;
             margin: 50px 0 40px;
-            border: 1px solid #e8ece1;
+            border: 1px solid #c8dccf;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease;
@@ -409,7 +410,7 @@
         .contact-info h3 {
             font-size: 2rem;
             margin-bottom: 28px;
-            color: #7c8f6e;
+            color: #1a6e5c;
         }
 
         .contact-details p {
@@ -417,34 +418,34 @@
             display: flex;
             align-items: center;
             gap: 14px;
-            color: #8fa08a;
+            color: #4a7b6a;
             font-size: 1rem;
         }
 
         .contact-form h3 {
             font-size: 2rem;
             margin-bottom: 20px;
-            color: #7c8f6e;
+            color: #1a6e5c;
         }
 
         .contact-form input, .contact-form textarea {
             width: 100%;
             padding: 14px 20px;
             margin: 12px 0;
-            border: 1px solid #e8ece1;
+            border: 1px solid #c8dccf;
             border-radius: 60px;
             font-family: inherit;
             background: #ffffff;
-            color: #5c6e4a;
+            color: #2d4a3e;
         }
 
         .contact-form input:focus, .contact-form textarea:focus {
             outline: none;
-            border-color: #9b9e6b;
+            border-color: #1a6e5c;
         }
 
         .contact-form button {
-            background: #9b9e6b;
+            background: #1a6e5c;
             color: white;
             border: none;
             padding: 12px 32px;
@@ -456,15 +457,15 @@
         }
 
         .contact-form button:hover {
-            background: #b8b97a;
+            background: #23967e;
         }
 
         footer {
             text-align: center;
             padding: 36px;
             font-size: 0.8rem;
-            color: #b8c4ab;
-            border-top: 1px solid #e8ece1;
+            color: #8eb3a3;
+            border-top: 1px solid #c8dccf;
         }
 
         @media (max-width: 760px) {
@@ -525,7 +526,7 @@
         <div class="section-title">Наши ритуалы</div>
         <div class="services-grid" id="servicesGrid">
             <div class="service-card">
-                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23f0f3ea\'/%3E%3Ccircle cx=\'200\' cy=\'120\' r=\'50\' fill=\'%239b9e6b\' opacity=\'0.2\'/%3E%3Cpath d=\'M150 180 L250 180 L230 210 L170 210 Z\' fill=\'%239b9e6b\' opacity=\'0.3\'/%3E%3Ctext x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'%237c8f6e\' font-size=\'20\' font-weight=\'bold\'%3E🧴 МАССАЖ%3C/text%3E%3C/svg%3E');"></div>
+                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23e0f0ea\'/%3E%3Ccircle cx=\'200\' cy=\'120\' r=\'50\' fill=\'%231a6e5c\' opacity=\'0.2\'/%3E%3Cpath d=\'M150 180 L250 180 L230 210 L170 210 Z\' fill=\'%231a6e5c\' opacity=\'0.3\'/%3E%3Ctext x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'20\' font-weight=\'bold\'%3E🧴 МАССАЖ%3C/text%3E%3C/svg%3E');"></div>
                 <div class="service-content">
                     <div class="service-title">Массаж тела</div>
                     <div class="service-desc">Классический, тайский, медовый, лимфодренаж.</div>
@@ -533,7 +534,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23e8ece1\'/%3E%3Cpath d=\'M100 130 Q200 80 300 130\' stroke=\'%239b9e6b\' stroke-width=\'3\' fill=\'none\' opacity=\'0.4\'/%3E%3Ccircle cx=\'200\' cy=\'150\' r=\'30\' fill=\'%239b9e6b\' opacity=\'0.2\'/%3E%3Ctext x=\'200\' y=\'160\' text-anchor=\'middle\' fill=\'%237c8f6e\' font-size=\'18\' font-weight=\'bold\'%3E🌸 СПА%3C/text%3E%3C/svg%3E');"></div>
+                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23d4e8df\'/%3E%3Cpath d=\'M100 130 Q200 80 300 130\' stroke=\'%231a6e5c\' stroke-width=\'3\' fill=\'none\' opacity=\'0.4\'/%3E%3Ccircle cx=\'200\' cy=\'150\' r=\'30\' fill=\'%231a6e5c\' opacity=\'0.2\'/%3E%3Ctext x=\'200\' y=\'160\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'18\' font-weight=\'bold\'%3E🌸 СПА%3C/text%3E%3C/svg%3E');"></div>
                 <div class="service-content">
                     <div class="service-title">SPA-программы</div>
                     <div class="service-desc">«Антистресс», «Детокс», «Романтический уикенд».</div>
@@ -541,7 +542,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23dfe3d6\'/%3E%3Cpath d=\'M80 130 L120 110 L160 140 L200 100 L240 135 L280 105 L320 130\' stroke=\'%239b9e6b\' stroke-width=\'3\' fill=\'none\' opacity=\'0.5\'/%3E%3Ctext x=\'200\' y=\'170\' text-anchor=\'middle\' fill=\'%237c8f6e\' font-size=\'18\' font-weight=\'bold\'%3E💧 ГИДРО%3C/text%3E%3C/svg%3E');"></div>
+                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23c8e0d6\'/%3E%3Cpath d=\'M80 130 L120 110 L160 140 L200 100 L240 135 L280 105 L320 130\' stroke=\'%231a6e5c\' stroke-width=\'3\' fill=\'none\' opacity=\'0.5\'/%3E%3Ctext x=\'200\' y=\'170\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'18\' font-weight=\'bold\'%3E💧 ГИДРО%3C/text%3E%3C/svg%3E');"></div>
                 <div class="service-content">
                     <div class="service-title">Гидромассаж</div>
                     <div class="service-desc">Подводный душ-массаж, гидрокапсула, жемчужные ванны.</div>
@@ -549,7 +550,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23f0f3ea\'/%3E%3Ccircle cx=\'160\' cy=\'120\' r=\'25\' fill=\'%239b9e6b\' opacity=\'0.3\'/%3E%3Ccircle cx=\'240\' cy=\'120\' r=\'25\' fill=\'%239b9e6b\' opacity=\'0.3\'/%3E%3Ctext x=\'200\' y=\'170\' text-anchor=\'middle\' fill=\'%237c8f6e\' font-size=\'18\' font-weight=\'bold\'%3E✨ КОСМЕТО%3C/text%3E%3C/svg%3E');"></div>
+                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23e0f0ea\'/%3E%3Ccircle cx=\'160\' cy=\'120\' r=\'25\' fill=\'%231a6e5c\' opacity=\'0.3\'/%3E%3Ccircle cx=\'240\' cy=\'120\' r=\'25\' fill=\'%231a6e5c\' opacity=\'0.3\'/%3E%3Ctext x=\'200\' y=\'170\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'18\' font-weight=\'bold\'%3E✨ КОСМЕТО%3C/text%3E%3C/svg%3E');"></div>
                 <div class="service-content">
                     <div class="service-title">Косметология</div>
                     <div class="service-desc">Инъекции, пилинги, RF-лифтинг, микротоки.</div>
@@ -557,7 +558,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23e8ece1\'/%3E%3Cpath d=\'M140 110 Q200 90 260 110\' stroke=\'%239b9e6b\' stroke-width=\'2\' fill=\'none\' opacity=\'0.4\'/%3E%3Ccircle cx=\'170\' cy=\'145\' r=\'12\' fill=\'%239b9e6b\' opacity=\'0.2\'/%3E%3Ccircle cx=\'230\' cy=\'145\' r=\'12\' fill=\'%239b9e6b\' opacity=\'0.2\'/%3E%3Ctext x=\'200\' y=\'180\' text-anchor=\'middle\' fill=\'%237c8f6e\' font-size=\'16\' font-weight=\'bold\'%3E👤 АРХИТЕКТУРА ЛИЦА%3C/text%3E%3C/svg%3E');"></div>
+                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23d4e8df\'/%3E%3Cpath d=\'M140 110 Q200 90 260 110\' stroke=\'%231a6e5c\' stroke-width=\'2\' fill=\'none\' opacity=\'0.4\'/%3E%3Ccircle cx=\'170\' cy=\'145\' r=\'12\' fill=\'%231a6e5c\' opacity=\'0.2\'/%3E%3Ccircle cx=\'230\' cy=\'145\' r=\'12\' fill=\'%231a6e5c\' opacity=\'0.2\'/%3E%3Ctext x=\'200\' y=\'180\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'16\' font-weight=\'bold\'%3E👤 АРХИТЕКТУРА ЛИЦА%3C/text%3E%3C/svg%3E');"></div>
                 <div class="service-content">
                     <div class="service-title">Архитектура лица</div>
                     <div class="service-desc">Скульптурный массаж, фейс-билдинг, коррекция овала.</div>
@@ -565,7 +566,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23dfe3d6\'/%3E%3Crect x=\'130\' y=\'100\' width=\'140\' height=\'60\' rx=\'15\' fill=\'%239b9e6b\' opacity=\'0.2\'/%3E%3Ctext x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'%237c8f6e\' font-size=\'18\' font-weight=\'bold\'%3E🪨 ПРОЧИЕ%3C/text%3E%3C/svg%3E');"></div>
+                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23c8e0d6\'/%3E%3Crect x=\'130\' y=\'100\' width=\'140\' height=\'60\' rx=\'15\' fill=\'%231a6e5c\' opacity=\'0.2\'/%3E%3Ctext x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'18\' font-weight=\'bold\'%3E🪨 ПРОЧИЕ%3C/text%3E%3C/svg%3E');"></div>
                 <div class="service-content">
                     <div class="service-title">Прочие услуги</div>
                     <div class="service-desc">Пилинг тела, стоун-терапия, спа-маникюр.</div>
@@ -574,7 +575,6 @@
             </div>
         </div>
 
-        <!-- Блок характеристик — 6 пунктов -->
         <div id="features" class="features-section">
             <div class="features-title">Почему МОНРЕПО</div>
             <div class="features-subtitle">Лицензированная клиника, а не салон: ваша безопасность под контролем врача</div>
@@ -612,7 +612,6 @@
             </div>
         </div>
 
-        <!-- Блок отзывов с обновлённым текстом -->
         <div id="reviews" class="reviews-section">
             <div class="rating-badge">4.9</div>
             <div class="rating-stats">средний рейтинг на Яндекс.Картах (187 оценок)</div>
