@@ -58,17 +58,85 @@
             letter-spacing: 2px;
         }
 
+        /* НАВИГАЦИЯ ПО ЦЕНТРУ */
+        .nav {
+            display: flex;
+            gap: 36px;
+            margin: 0 auto;
+        }
+
         .nav a {
-            margin-left: 32px;
             text-decoration: none;
             color: #2d6a58;
             font-weight: 600;
             transition: 0.2s;
             cursor: pointer;
+            font-size: 1rem;
         }
 
         .nav a:hover {
             color: #1a6e5c;
+        }
+
+        /* ПРАВЫЙ БЛОК С ТЕЛЕФОНОМ И ИКОНКАМИ */
+        .contact-info-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .phone-number {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1a6e5c;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: #e0f0ea;
+            border-radius: 50%;
+            transition: 0.2s;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .social-icons a:hover {
+            background: #c8e0d6;
+            transform: scale(1.05);
+        }
+
+        .app-icon {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #1a6e5c;
+            padding: 6px 14px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .app-icon span {
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .app-icon:hover {
+            background: #23967e;
+            transform: scale(1.02);
         }
 
         .hero {
@@ -468,6 +536,20 @@
             border-top: 1px solid #c8dccf;
         }
 
+        @media (max-width: 900px) {
+            .header-inner {
+                flex-direction: column;
+            }
+            .nav {
+                margin: 0;
+                order: 3;
+            }
+            .contact-info-header {
+                margin: 0;
+                order: 2;
+            }
+        }
+
         @media (max-width: 760px) {
             .container {
                 padding: 0 20px;
@@ -494,6 +576,15 @@
             .features-grid {
                 grid-template-columns: 1fr;
             }
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            .contact-info-header {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -505,11 +596,26 @@
             <h1>МОНРЕПО</h1>
             <p>медицинская клиника косметологии</p>
         </div>
+
+        <!-- НАВИГАЦИЯ ПО ЦЕНТРУ -->
         <div class="nav">
             <a onclick="scrollToServices()">Услуги</a>
             <a onclick="scrollToFeatures()">О клинике</a>
             <a onclick="scrollToReviews()">Отзывы</a>
             <a onclick="scrollToContact()">Контакты</a>
+        </div>
+
+        <!-- ПРАВЫЙ БЛОК: ТЕЛЕФОН + ИКОНКИ MESSENGERS + ПРИЛОЖЕНИЕ MAX -->
+        <div class="contact-info-header">
+            <a href="tel:+79179547719" class="phone-number">+7 (917) 954-77-19</a>
+            <div class="social-icons">
+                <a href="#" target="_blank">📱</a>
+                <a href="#" target="_blank">💬</a>
+                <a href="#" target="_blank">✈️</a>
+            </div>
+            <a href="#" class="app-icon">
+                <span>📲 MAX</span>
+            </a>
         </div>
     </div>
 </header>
@@ -521,6 +627,7 @@
     </div>
 </section>
 
+<!-- ВСЁ ОСТАЛЬНОЕ (услуги, характеристики, отзывы, контакты, футер) ПОЛНОСТЬЮ СОХРАНЕНО -->
 <section id="services" class="services-section">
     <div class="container">
         <div class="section-title">Наши ритуалы</div>
@@ -579,36 +686,12 @@
             <div class="features-title">Почему МОНРЕПО</div>
             <div class="features-subtitle">Лицензированная клиника, а не салон: ваша безопасность под контролем врача</div>
             <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-number">01</div>
-                    <div class="feature-title">Медицинская лицензия</div>
-                    <div class="feature-desc">Мы — лицензированная медицинская организация, а не салон красоты.</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-number">02</div>
-                    <div class="feature-title">Врачи-косметологи</div>
-                    <div class="feature-desc">Процедуры выполняют специалисты с медицинским образованием.</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-number">03</div>
-                    <div class="feature-title">Оригинальные аппараты с регистрацией</div>
-                    <div class="feature-desc">Всё оборудование имеет регистрационные удостоверения.</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-number">04</div>
-                    <div class="feature-title">Индивидуальный подбор</div>
-                    <div class="feature-desc">Врач не продаёт «пакет», а подбирает решение под вашу задачу на консультации.</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-number">05</div>
-                    <div class="feature-title">Сертифицированные препараты</div>
-                    <div class="feature-desc">Используем только оригинальные препараты с полной документацией.</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-number">06</div>
-                    <div class="feature-title">Анонимность и комфорт</div>
-                    <div class="feature-desc">Индивидуальные кабинеты и полная конфиденциальность.</div>
-                </div>
+                <div class="feature-item"><div class="feature-number">01</div><div class="feature-title">Медицинская лицензия</div><div class="feature-desc">Мы — лицензированная медицинская организация, а не салон красоты.</div></div>
+                <div class="feature-item"><div class="feature-number">02</div><div class="feature-title">Врачи-косметологи</div><div class="feature-desc">Процедуры выполняют специалисты с медицинским образованием.</div></div>
+                <div class="feature-item"><div class="feature-number">03</div><div class="feature-title">Оригинальные аппараты с регистрацией</div><div class="feature-desc">Всё оборудование имеет регистрационные удостоверения.</div></div>
+                <div class="feature-item"><div class="feature-number">04</div><div class="feature-title">Индивидуальный подбор</div><div class="feature-desc">Врач не продаёт «пакет», а подбирает решение под вашу задачу на консультации.</div></div>
+                <div class="feature-item"><div class="feature-number">05</div><div class="feature-title">Сертифицированные препараты</div><div class="feature-desc">Используем только оригинальные препараты с полной документацией.</div></div>
+                <div class="feature-item"><div class="feature-number">06</div><div class="feature-title">Анонимность и комфорт</div><div class="feature-desc">Индивидуальные кабинеты и полная конфиденциальность.</div></div>
             </div>
         </div>
 
@@ -616,22 +699,11 @@
             <div class="rating-badge">4.9</div>
             <div class="rating-stats">средний рейтинг на Яндекс.Картах (187 оценок)</div>
             <div class="rating-grid">
-                <div class="rating-item">
-                    <div class="rating-percent">100%</div>
-                    <div class="rating-label">Атмосфера</div>
-                </div>
-                <div class="rating-item">
-                    <div class="rating-percent">95%</div>
-                    <div class="rating-label">Чистота</div>
-                </div>
-                <div class="rating-item">
-                    <div class="rating-percent">91%</div>
-                    <div class="rating-label">Лазерная эпиляция</div>
-                </div>
+                <div class="rating-item"><div class="rating-percent">100%</div><div class="rating-label">Атмосфера</div></div>
+                <div class="rating-item"><div class="rating-percent">95%</div><div class="rating-label">Чистота</div></div>
+                <div class="rating-item"><div class="rating-percent">91%</div><div class="rating-label">Лазерная эпиляция</div></div>
             </div>
-            <button class="yandex-button" onclick="window.open('https://yandex.ru/maps/org/monrepo/1185194185/reviews/?ll=30.398920%2C59.845325&z=14', '_blank')">
-                Читать все 116 отзывов на Яндекс.Картах
-            </button>
+            <button class="yandex-button" onclick="window.open('https://yandex.ru/maps/org/monrepo/1185194185/reviews/?ll=30.398920%2C59.845325&z=14', '_blank')">Читать все 116 отзывов на Яндекс.Картах</button>
         </div>
 
         <div class="extra-services">
