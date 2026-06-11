@@ -6,726 +6,95 @@
     <title>МОНРЕПО | SPA & WELLNESS</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #ffffff 0%, #fff7ef 50%, #fef0e0 100%);
-            color: #2d4a3e;
-            scroll-behavior: smooth;
-            line-height: 1.5;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        .header {
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(12px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 2px solid #c8dccf;
-            padding: 18px 0;
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .logo h1 {
-            font-size: 2rem;
-            letter-spacing: -0.5px;
-            font-weight: 800;
-            color: #1a6e5c;
-            cursor: pointer;
-        }
-
-        .logo p {
-            font-size: 0.7rem;
-            color: #6b9a89;
-            letter-spacing: 2px;
-        }
-
-        .nav {
-            display: flex;
-            gap: 36px;
-            margin: 0 auto;
-        }
-
-        .nav a {
-            text-decoration: none;
-            color: #2d6a58;
-            font-weight: 600;
-            transition: 0.2s;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .nav a:hover {
-            color: #1a6e5c;
-        }
-
-        /* ПЛАВАЮЩАЯ ПАНЕЛЬ СПРАВА ВНИЗУ */
-        .floating-contact {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 12px;
-        }
-
-        .phone-button {
-            background: #1a6e5c;
-            padding: 12px 24px;
-            border-radius: 60px;
-            color: white;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            transition: 0.2s;
-        }
-
-        .phone-button:hover {
-            background: #23967e;
-            transform: scale(1.02);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            padding: 10px 18px;
-            border-radius: 60px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border: 1px solid #c8dccf;
-        }
-
-        .social-links a {
-            width: 38px;
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #e0f0ea;
-            border-radius: 50%;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: 0.2s;
-            color: #1a6e5c;
-        }
-
-        .social-links a:hover {
-            background: #c8e0d6;
-            transform: scale(1.05);
-        }
-
-        .app-max {
-            background: #1a6e5c;
-            padding: 10px 20px;
-            border-radius: 60px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: 0.2s;
-        }
-
-        .app-max:hover {
-            background: #23967e;
-            transform: scale(1.02);
-        }
-
-        .hero {
-            background: linear-gradient(125deg, #e2f0ea 0%, #ffffff 80%);
-            padding: 80px 0;
-            text-align: center;
-            border-radius: 0 0 56px 56px;
-            margin-bottom: 50px;
-            border-bottom: 1px solid #c8dccf;
-        }
-
-        .hero h2 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: #1a6e5c;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 20px auto 0;
-            color: #4a7b6a;
-        }
-
-        .services-section {
-            padding: 50px 0 60px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.6rem;
-            font-weight: 800;
-            margin-bottom: 56px;
-            color: #1a6e5c;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .service-card {
-            background: #ffffff;
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-            transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
-            cursor: pointer;
-            border: 1px solid #c8dccf;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s, border-color 0.35s;
-        }
-
-        .service-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .service-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 30px 40px -12px rgba(26, 110, 92, 0.25);
-            border-color: #9bc6bb;
-        }
-
-        .service-img {
-            height: 240px;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.45s ease;
-        }
-
-        .service-card:hover .service-img {
-            transform: scale(1.03);
-        }
-
-        .service-content {
-            padding: 28px 24px 34px;
-        }
-
-        .service-title {
-            font-size: 1.7rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #1a6e5c;
-            transition: color 0.25s;
-        }
-
-        .service-card:hover .service-title {
-            color: #0f8b72;
-        }
-
-        .service-desc {
-            color: #6b9a89;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .price-badge {
-            font-weight: 600;
-            color: #1a6e5c;
-            background: #e0f0ea;
-            display: inline-block;
-            padding: 6px 18px;
-            border-radius: 60px;
-            font-size: 0.85rem;
-            transition: all 0.2s;
-        }
-
-        .service-card:hover .price-badge {
-            background: #c8e0d6;
-            color: #0b5e4b;
-        }
-
-        /* СТРАНИЦА ТОВАРА — БЕЗ МАЛЕНЬКОЙ ТАБЛИЧКИ */
-        .product-page {
-            display: none;
-            padding: 40px 0 80px;
-            min-height: 100vh;
-        }
-
-        .product-page.active {
-            display: block;
-            animation: slideFromTop 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
-        }
-
-        @keyframes slideFromTop {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .back-button {
-            display: inline-block;
-            background: #e0f0ea;
-            color: #1a6e5c;
-            border: 1px solid #c8dccf;
-            padding: 12px 28px;
-            border-radius: 60px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-bottom: 40px;
-            transition: 0.2s;
-        }
-
-        .back-button:hover {
-            background: #c8e0d6;
-            transform: translateX(-5px);
-        }
-
-        .product-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            background: #ffffff;
-            border-radius: 48px;
-            padding: 48px;
-            border: 1px solid #c8dccf;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 100%;
-            min-height: 450px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 32px;
-            border: 1px solid #c8dccf;
-        }
-
-        /* Убран блок с маленькой картинкой и текстом под ней */
-        .product-info h1 {
-            font-size: 2.5rem;
-            color: #1a6e5c;
-            margin-bottom: 20px;
-        }
-
-        .product-price {
-            font-size: 2rem;
-            color: #23967e;
-            font-weight: 700;
-            margin: 20px 0;
-        }
-
-        .product-duration {
-            color: #6b9a89;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .product-description {
-            color: #4f6f64;
-            line-height: 1.7;
-            margin: 25px 0;
-            font-size: 1.05rem;
-        }
-
-        .book-btn {
-            background: #1a6e5c;
-            color: white;
-            border: none;
-            padding: 14px 32px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: 0.2s;
-        }
-
-        .book-btn:hover {
-            background: #23967e;
-            transform: scale(1.02);
-        }
-
-        /* Блок "Почему МОНРЕПО" (6 пунктов) */
-        .features-section {
-            background: #ffffff;
-            border-radius: 48px;
-            padding: 60px 48px;
-            margin: 40px 0;
-            border: 1px solid #c8dccf;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .features-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .features-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #1a6e5c;
-            text-align: center;
-            margin-bottom: 16px;
-        }
-
-        .features-subtitle {
-            text-align: center;
-            color: #6b9a89;
-            font-size: 1.1rem;
-            margin-bottom: 48px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 24px;
-            background: #fefaf5;
-            border-radius: 32px;
-            transition: all 0.3s ease;
-            border: 1px solid #f0ede5;
-        }
-
-        .feature-item:hover {
-            background: #ffffff;
-            transform: translateY(-5px);
-            border-color: #c8dccf;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        }
-
-        .feature-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #1a6e5c;
-            margin-bottom: 16px;
-        }
-
-        .feature-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #2d4a3e;
-            margin-bottom: 12px;
-        }
-
-        .feature-desc {
-            color: #6b9a89;
-            line-height: 1.5;
-        }
-
-        /* Блок отзывов */
-        .reviews-section {
-            background: #ffffff;
-            border-radius: 48px;
-            padding: 60px 48px;
-            margin: 40px 0;
-            border: 1px solid #c8dccf;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .reviews-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .rating-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #1a6e5c, #23967e);
-            color: white;
-            padding: 12px 32px;
-            border-radius: 60px;
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .rating-stats {
-            font-size: 1rem;
-            color: #6b9a89;
-            margin-bottom: 40px;
-        }
-
-        .rating-grid {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .rating-item {
-            text-align: center;
-        }
-
-        .rating-percent {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #1a6e5c;
-        }
-
-        .rating-label {
-            color: #6b9a89;
-            font-size: 0.9rem;
-        }
-
-        .yandex-button {
-            background: #f5c542;
-            border: none;
-            padding: 16px 36px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1rem;
-            color: #000000;
-            cursor: pointer;
-            transition: 0.2s;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .yandex-button:hover {
-            background: #e6b320;
-            transform: scale(1.02);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        .extra-services {
-            margin-top: 50px;
-            background: #ffffffcc;
-            backdrop-filter: blur(4px);
-            border-radius: 48px;
-            padding: 44px 36px;
-            border: 1px solid #c8dccf;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .extra-services.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .extra-title {
-            font-size: 1.9rem;
-            font-weight: 700;
-            margin-bottom: 28px;
-            text-align: center;
-            color: #1a6e5c;
-        }
-
-        .extra-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 16px;
-        }
-
-        .extra-item {
-            background: #ffffff;
-            border-radius: 120px;
-            padding: 10px 28px;
-            font-weight: 500;
-            transition: all 0.2s;
-            cursor: default;
-            color: #1a6e5c;
-            border: 1px solid #c8dccf;
-        }
-
-        .extra-item:hover {
-            background: #e0f0ea;
-            color: #0f8b72;
-            transform: scale(1.02);
-        }
-
-        .contact {
-            background: #ffffffcc;
-            backdrop-filter: blur(4px);
-            padding: 60px 0;
-            border-radius: 48px;
-            margin: 50px 0 40px;
-            border: 1px solid #c8dccf;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .contact.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .contact-inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 52px;
-            align-items: start;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 28px;
-            color: #1a6e5c;
-        }
-
-        .contact-details p {
-            margin: 18px 0;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            color: #4a7b6a;
-            font-size: 1rem;
-        }
-
-        .contact-form h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #1a6e5c;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 14px 20px;
-            margin: 12px 0;
-            border: 1px solid #c8dccf;
-            border-radius: 60px;
-            font-family: inherit;
-            background: #ffffff;
-            color: #2d4a3e;
-        }
-
-        .contact-form input:focus, .contact-form textarea:focus {
-            outline: none;
-            border-color: #1a6e5c;
-        }
-
-        .contact-form button {
-            background: #1a6e5c;
-            color: white;
-            border: none;
-            padding: 12px 32px;
-            border-radius: 60px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-            margin-top: 8px;
-        }
-
-        .contact-form button:hover {
-            background: #23967e;
-        }
-
-        footer {
-            text-align: center;
-            padding: 36px;
-            font-size: 0.8rem;
-            color: #8eb3a3;
-            border-top: 1px solid #c8dccf;
-        }
-
-        /* Скрытие главной страницы */
-        .main-page {
-            transition: opacity 0.3s ease;
-        }
-
-        .main-page.hide {
-            opacity: 0;
-            pointer-events: none;
-            display: none;
-        }
-
-        @media (max-width: 900px) {
-            .header-inner {
-                flex-direction: column;
-            }
-            .nav {
-                margin: 0;
-            }
-        }
-
-        @media (max-width: 760px) {
-            .container {
-                padding: 0 20px;
-            }
-            .contact-inner {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .hero h2 {
-                font-size: 2rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-            .features-section, .reviews-section {
-                padding: 32px 24px;
-            }
-            .features-title {
-                font-size: 1.6rem;
-            }
-            .rating-grid {
-                gap: 30px;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            .floating-contact {
-                bottom: 20px;
-                right: 20px;
-            }
-            .social-links {
-                padding: 6px 12px;
-            }
-            .product-container {
-                grid-template-columns: 1fr;
-                padding: 24px;
-            }
-            .product-image {
-                min-height: 250px;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #ffffff 0%, #fff7ef 50%, #fef0e0 100%); color: #2d4a3e; scroll-behavior: smooth; line-height: 1.5; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
+        .header { background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; border-bottom: 2px solid #c8dccf; padding: 18px 0; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .logo h1 { font-size: 2rem; letter-spacing: -0.5px; font-weight: 800; color: #1a6e5c; cursor: pointer; }
+        .logo p { font-size: 0.7rem; color: #6b9a89; letter-spacing: 2px; }
+        .nav { display: flex; gap: 36px; margin: 0 auto; }
+        .nav a { text-decoration: none; color: #2d6a58; font-weight: 600; transition: 0.2s; cursor: pointer; font-size: 1rem; }
+        .nav a:hover { color: #1a6e5c; }
+        .floating-contact { position: fixed; bottom: 30px; right: 30px; z-index: 1000; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+        .phone-button { background: #1a6e5c; padding: 12px 24px; border-radius: 60px; color: white; font-weight: 700; text-decoration: none; font-size: 1rem; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); transition: 0.2s; }
+        .phone-button:hover { background: #23967e; transform: scale(1.02); }
+        .social-links { display: flex; gap: 10px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); padding: 10px 18px; border-radius: 60px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); border: 1px solid #c8dccf; }
+        .social-links a { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; background: #e0f0ea; border-radius: 50%; text-decoration: none; font-size: 1.2rem; transition: 0.2s; color: #1a6e5c; }
+        .social-links a:hover { background: #c8e0d6; transform: scale(1.05); }
+        .app-max { background: #1a6e5c; padding: 10px 20px; border-radius: 60px; text-decoration: none; color: white; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: 0.2s; }
+        .app-max:hover { background: #23967e; transform: scale(1.02); }
+        .hero { background: linear-gradient(125deg, #e2f0ea 0%, #ffffff 80%); padding: 80px 0; text-align: center; border-radius: 0 0 56px 56px; margin-bottom: 50px; border-bottom: 1px solid #c8dccf; }
+        .hero h2 { font-size: 3.5rem; font-weight: 800; color: #1a6e5c; }
+        .hero p { font-size: 1.3rem; max-width: 800px; margin: 20px auto 0; color: #4a7b6a; }
+        .services-section { padding: 50px 0 60px; }
+        .section-title { text-align: center; font-size: 2.6rem; font-weight: 800; margin-bottom: 56px; color: #1a6e5c; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 40px; }
+        .service-card { background: #ffffff; border-radius: 32px; overflow: hidden; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08); transition: all 0.35s cubic-bezier(0.2, 0, 0, 1); cursor: pointer; border: 1px solid #c8dccf; opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s, border-color 0.35s; }
+        .service-card.visible { opacity: 1; transform: translateY(0); }
+        .service-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 30px 40px -12px rgba(26, 110, 92, 0.25); border-color: #9bc6bb; }
+        .service-img { height: 240px; background-size: cover; background-position: center; transition: transform 0.45s ease; }
+        .service-card:hover .service-img { transform: scale(1.03); }
+        .service-content { padding: 28px 24px 34px; }
+        .service-title { font-size: 1.7rem; font-weight: 700; margin-bottom: 12px; color: #1a6e5c; transition: color 0.25s; }
+        .service-card:hover .service-title { color: #0f8b72; }
+        .service-desc { color: #6b9a89; margin-bottom: 20px; line-height: 1.5; }
+        .price-badge { font-weight: 600; color: #1a6e5c; background: #e0f0ea; display: inline-block; padding: 6px 18px; border-radius: 60px; font-size: 0.85rem; transition: all 0.2s; }
+        .service-card:hover .price-badge { background: #c8e0d6; color: #0b5e4b; }
+        .product-page { display: none; padding: 40px 0 80px; min-height: 100vh; }
+        .product-page.active { display: block; animation: slideFromTop 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards; }
+        @keyframes slideFromTop { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+        .back-button { display: inline-block; background: #e0f0ea; color: #1a6e5c; border: 1px solid #c8dccf; padding: 12px 28px; border-radius: 60px; font-weight: 600; cursor: pointer; margin-bottom: 40px; transition: 0.2s; }
+        .back-button:hover { background: #c8e0d6; transform: translateX(-5px); }
+        .product-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; background: #ffffff; border-radius: 48px; padding: 48px; border: 1px solid #c8dccf; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05); }
+        .product-image { width: 100%; height: 100%; min-height: 450px; background-size: cover; background-position: center; border-radius: 32px; border: 1px solid #c8dccf; }
+        .product-info h1 { font-size: 2.5rem; color: #1a6e5c; margin-bottom: 20px; }
+        .product-price { font-size: 2rem; color: #23967e; font-weight: 700; margin: 20px 0; }
+        .product-duration { color: #6b9a89; margin-bottom: 20px; font-size: 1.1rem; }
+        .product-description { color: #4f6f64; line-height: 1.7; margin: 25px 0; font-size: 1.05rem; }
+        .book-btn { background: #1a6e5c; color: white; border: none; padding: 14px 32px; border-radius: 60px; font-weight: 700; font-size: 1rem; cursor: pointer; margin-top: 20px; transition: 0.2s; }
+        .book-btn:hover { background: #23967e; transform: scale(1.02); }
+        .features-section { background: #ffffff; border-radius: 48px; padding: 60px 48px; margin: 40px 0; border: 1px solid #c8dccf; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04); opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .features-section.visible { opacity: 1; transform: translateY(0); }
+        .features-title { font-size: 2.2rem; font-weight: 800; color: #1a6e5c; text-align: center; margin-bottom: 16px; }
+        .features-subtitle { text-align: center; color: #6b9a89; font-size: 1.1rem; margin-bottom: 48px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .feature-item { text-align: center; padding: 24px; background: #fefaf5; border-radius: 32px; transition: all 0.3s ease; border: 1px solid #f0ede5; }
+        .feature-item:hover { background: #ffffff; transform: translateY(-5px); border-color: #c8dccf; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); }
+        .feature-number { font-size: 2.5rem; font-weight: 800; color: #1a6e5c; margin-bottom: 16px; }
+        .feature-title { font-size: 1.4rem; font-weight: 700; color: #2d4a3e; margin-bottom: 12px; }
+        .feature-desc { color: #6b9a89; line-height: 1.5; }
+        .reviews-section { background: #ffffff; border-radius: 48px; padding: 60px 48px; margin: 40px 0; border: 1px solid #c8dccf; text-align: center; opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reviews-section.visible { opacity: 1; transform: translateY(0); }
+        .rating-badge { display: inline-block; background: linear-gradient(135deg, #1a6e5c, #23967e); color: white; padding: 12px 32px; border-radius: 60px; font-size: 1.8rem; font-weight: 800; margin-bottom: 20px; }
+        .rating-stats { font-size: 1rem; color: #6b9a89; margin-bottom: 40px; }
+        .rating-grid { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-bottom: 40px; }
+        .rating-item { text-align: center; }
+        .rating-percent { font-size: 2rem; font-weight: 800; color: #1a6e5c; }
+        .rating-label { color: #6b9a89; font-size: 0.9rem; }
+        .yandex-button { background: #f5c542; border: none; padding: 16px 36px; border-radius: 60px; font-weight: 700; font-size: 1rem; color: #000000; cursor: pointer; transition: 0.2s; margin-top: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+        .yandex-button:hover { background: #e6b320; transform: scale(1.02); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); }
+        .extra-services { margin-top: 50px; background: #ffffffcc; backdrop-filter: blur(4px); border-radius: 48px; padding: 44px 36px; border: 1px solid #c8dccf; opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .extra-services.visible { opacity: 1; transform: translateY(0); }
+        .extra-title { font-size: 1.9rem; font-weight: 700; margin-bottom: 28px; text-align: center; color: #1a6e5c; }
+        .extra-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+        .extra-item { background: #ffffff; border-radius: 120px; padding: 10px 28px; font-weight: 500; transition: all 0.2s; cursor: default; color: #1a6e5c; border: 1px solid #c8dccf; }
+        .extra-item:hover { background: #e0f0ea; color: #0f8b72; transform: scale(1.02); }
+        .contact { background: #ffffffcc; backdrop-filter: blur(4px); padding: 60px 0; border-radius: 48px; margin: 50px 0 40px; border: 1px solid #c8dccf; opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .contact.visible { opacity: 1; transform: translateY(0); }
+        .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+        .contact-info h3 { font-size: 2rem; margin-bottom: 28px; color: #1a6e5c; }
+        .contact-details p { margin: 18px 0; display: flex; align-items: center; gap: 14px; color: #4a7b6a; font-size: 1rem; }
+        .contact-form h3 { font-size: 2rem; margin-bottom: 20px; color: #1a6e5c; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 14px 20px; margin: 12px 0; border: 1px solid #c8dccf; border-radius: 60px; font-family: inherit; background: #ffffff; color: #2d4a3e; }
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #1a6e5c; }
+        .contact-form button { background: #1a6e5c; color: white; border: none; padding: 12px 32px; border-radius: 60px; font-weight: 600; cursor: pointer; transition: 0.2s; margin-top: 8px; }
+        .contact-form button:hover { background: #23967e; }
+        footer { text-align: center; padding: 36px; font-size: 0.8rem; color: #8eb3a3; border-top: 1px solid #c8dccf; }
+        .main-page { transition: opacity 0.3s ease; }
+        .main-page.hide { opacity: 0; pointer-events: none; display: none; }
+        @media (max-width: 900px) { .header-inner { flex-direction: column; } .nav { margin: 0; } }
+        @media (max-width: 760px) { .container { padding: 0 20px; } .contact-inner { grid-template-columns: 1fr; gap: 40px; } .hero h2 { font-size: 2rem; } .hero p { font-size: 1rem; } .features-section, .reviews-section { padding: 32px 24px; } .features-title { font-size: 1.6rem; } .rating-grid { gap: 30px; } .features-grid { grid-template-columns: 1fr; } .floating-contact { bottom: 20px; right: 20px; } .social-links { padding: 6px 12px; } .product-container { grid-template-columns: 1fr; padding: 24px; } .product-image { min-height: 250px; } }
     </style>
 </head>
 <body>
@@ -734,7 +103,7 @@
     <div class="container header-inner">
         <div class="logo" onclick="showMainPage(); scrollToTop()">
             <h1>МОНРЕПО</h1>
-            <p>SPA & WELLNESS</p> <!-- Текст изменён -->
+            <p>SPA & WELLNESS</p>
         </div>
         <div class="nav">
             <a onclick="showMainPage(); scrollToServices()">Услуги</a>
@@ -745,22 +114,16 @@
     </div>
 </header>
 
-<!-- ПЛАВАЮЩАЯ ПАНЕЛЬ СПРАВА ВНИЗУ -->
 <div class="floating-contact">
-    <a href="tel:+79179547719" class="phone-button">
-        📞 +7 (917) 954-77-19
-    </a>
+    <a href="tel:+79179547719" class="phone-button">📞 +7 (917) 954-77-19</a>
     <div class="social-links">
         <a href="#" target="_blank">💬</a>
         <a href="#" target="_blank">✈️</a>
         <a href="#" target="_blank">📱</a>
     </div>
-    <a href="#" class="app-max">
-        📲 MAX
-    </a>
+    <a href="#" class="app-max">📲 MAX</a>
 </div>
 
-<!-- ОСНОВНАЯ СТРАНИЦА -->
 <div id="mainPage" class="main-page">
     <section class="hero">
         <div class="container">
@@ -772,54 +135,30 @@
     <section id="services" class="services-section">
         <div class="container">
             <div class="section-title">Наши ритуалы</div>
-            <div class="services-grid" id="servicesGrid">
+            <div class="services-grid">
                 <div class="service-card" onclick="showProduct('massage')">
                     <div class="service-img" style="background-image: url('massage.jpg'); background-size: cover; background-position: center;"></div>
-                    <div class="service-content">
-                        <div class="service-title">Массаж тела</div>
-                        <div class="service-desc">Классический, тайский, медовый, лимфодренаж.</div>
-                        <span class="price-badge">от 3 500 ₽ / 60 мин</span>
-                    </div>
+                    <div class="service-content"><div class="service-title">Массаж тела</div><div class="service-desc">Классический, тайский, медовый, лимфодренаж.</div><span class="price-badge">от 3 500 ₽ / 60 мин</span></div>
                 </div>
                 <div class="service-card" onclick="showProduct('spa')">
                     <div class="service-img" style="background-image: url('spa.jpg'); background-size: cover; background-position: center;"></div>
-                    <div class="service-content">
-                        <div class="service-title">SPA-программы</div>
-                        <div class="service-desc">«Антистресс», «Детокс», «Романтический уикенд».</div>
-                        <span class="price-badge">от 5 900 ₽ / сеанс</span>
-                    </div>
+                    <div class="service-content"><div class="service-title">SPA-программы</div><div class="service-desc">«Антистресс», «Детокс», «Романтический уикенд».</div><span class="price-badge">от 5 900 ₽ / сеанс</span></div>
                 </div>
                 <div class="service-card" onclick="showProduct('hydromassage')">
-                    <div class="service-img" style="background-image: url('hydro.jpg'); background-size: cover; background-position: center;"></div>
-                    <div class="service-content">
-                        <div class="service-title">Гидромассаж</div>
-                        <div class="service-desc">Подводный душ-массаж, гидрокапсула, жемчужные ванны.</div>
-                        <span class="price-badge">от 2 800 ₽ / 30 мин</span>
-                    </div>
+                    <div class="service-img" style="background-image: url('hydromassage.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="service-content"><div class="service-title">Гидромассаж</div><div class="service-desc">Подводный душ-массаж, гидрокапсула, жемчужные ванны.</div><span class="price-badge">от 2 800 ₽ / 30 мин</span></div>
                 </div>
                 <div class="service-card" onclick="showProduct('cosmetology')">
-                    <div class="service-img" style="background-image: url('cosmo.jpg'); background-size: cover; background-position: center;"></div>
-                    <div class="service-content">
-                        <div class="service-title">Косметология</div>
-                        <div class="service-desc">Инъекции, пилинги, RF-лифтинг, микротоки.</div>
-                        <span class="price-badge">от 4 000 ₽</span>
-                    </div>
+                    <div class="service-img" style="background-image: url('cosmetology.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="service-content"><div class="service-title">Косметология</div><div class="service-desc">Инъекции, пилинги, RF-лифтинг, микротоки.</div><span class="price-badge">от 4 000 ₽</span></div>
                 </div>
                 <div class="service-card" onclick="showProduct('face')">
                     <div class="service-img" style="background-image: url('face.jpg'); background-size: cover; background-position: center;"></div>
-                    <div class="service-content">
-                        <div class="service-title">Архитектура лица</div>
-                        <div class="service-desc">Скульптурный массаж, фейс-билдинг, коррекция овала.</div>
-                        <span class="price-badge">от 4 500 ₽ / сеанс</span>
-                    </div>
+                    <div class="service-content"><div class="service-title">Архитектура лица</div><div class="service-desc">Скульптурный массаж, фейс-билдинг, коррекция овала.</div><span class="price-badge">от 4 500 ₽ / сеанс</span></div>
                 </div>
                 <div class="service-card" onclick="showProduct('other')">
                     <div class="service-img" style="background-image: url('other.jpg'); background-size: cover; background-position: center;"></div>
-                    <div class="service-content">
-                        <div class="service-title">Прочие услуги</div>
-                        <div class="service-desc">Пилинг тела, стоун-терапия, спа-маникюр.</div>
-                        <span class="price-badge">по запросу</span>
-                    </div>
+                    <div class="service-content"><div class="service-title">Прочие услуги</div><div class="service-desc">Пилинг тела, стоун-терапия, спа-маникюр.</div><span class="price-badge">по запросу</span></div>
                 </div>
             </div>
 
@@ -887,57 +226,31 @@
         </div>
     </div>
 
-    <footer>
-        <div class="container">
-            © 2025 МОНРЕПО | SPA & WELLNESS
-        </div>
-    </footer>
+    <footer><div class="container">© 2025 МОНРЕПО | SPA & WELLNESS</div></footer>
 </div>
 
-<!-- СТРАНИЦЫ ТОВАРОВ (БЕЗ МАЛЕНЬКОЙ ТАБЛИЧКИ) -->
 <div id="productMassage" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('massage.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Массаж тела</h1><div class="product-price">от 3 500 ₽</div><div class="product-duration">⏱ Длительность: 60 / 90 / 120 мин</div><div class="product-description">Классический, тайский, медовый, лимфодренажный массаж. Снимает напряжение, улучшает кровоток, дарит лёгкость.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
 <div id="productSpa" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('spa.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>SPA-программы</h1><div class="product-price">от 5 900 ₽</div><div class="product-duration">⏱ 90/120/180 мин</div><div class="product-description">Обертывания, ароматерапия, массаж, чайная церемония.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productHydromassage" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('hydro.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Гидромассаж</h1><div class="product-price">от 2 800 ₽</div><div class="product-duration">⏱ 30/45/60 мин</div><div class="product-description">Подводный массаж, гидрокапсула, жемчужные ванны — расслабление без нагрузки.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productCosmetology" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('cosmo.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Косметология</h1><div class="product-price">от 4 000 ₽</div><div class="product-duration">⏱ 60/90 мин</div><div class="product-description">Инъекции, пилинги, RF-лифтинг, микротоки. Медицинский подход.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
+<div id="productHydromassage" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('hydromassage.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Гидромассаж</h1><div class="product-price">от 2 800 ₽</div><div class="product-duration">⏱ 30/45/60 мин</div><div class="product-description">Подводный массаж, гидрокапсула, жемчужные ванны — расслабление без нагрузки.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
+<div id="productCosmetology" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('cosmetology.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Косметология</h1><div class="product-price">от 4 000 ₽</div><div class="product-duration">⏱ 60/90 мин</div><div class="product-description">Инъекции, пилинги, RF-лифтинг, микротоки. Медицинский подход.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
 <div id="productFace" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('face.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Архитектура лица</h1><div class="product-price">от 4 500 ₽</div><div class="product-duration">⏱ 60/90 мин</div><div class="product-description">Скульптурный массаж, фейс-билдинг, коррекция овала.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
 <div id="productOther" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('other.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Прочие услуги</h1><div class="product-price">по запросу</div><div class="product-duration">уточняется</div><div class="product-description">Стоун-терапия, спа-маникюр, ритуалы для пар.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
 
 <script>
-    // Анимация появления при скролле
     const animatedElements = document.querySelectorAll('.service-card, .features-section, .reviews-section, .extra-services, .contact');
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
     }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
     animatedElements.forEach(el => observer.observe(el));
 
-    // Показать страницу услуги
     function showProduct(productId) {
         document.getElementById('mainPage').classList.add('hide');
         document.querySelectorAll('.product-page').forEach(p => p.classList.remove('active'));
-        const map = {
-            'massage': 'productMassage',
-            'spa': 'productSpa',
-            'hydromassage': 'productHydromassage',
-            'cosmetology': 'productCosmetology',
-            'face': 'productFace',
-            'other': 'productOther'
-        };
+        const map = { 'massage': 'productMassage', 'spa': 'productSpa', 'hydromassage': 'productHydromassage', 'cosmetology': 'productCosmetology', 'face': 'productFace', 'other': 'productOther' };
         document.getElementById(map[productId]).classList.add('active');
         setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 30);
     }
-
-    // Показать главную страницу
-    function showMainPage() {
-        document.querySelectorAll('.product-page').forEach(p => p.classList.remove('active'));
-        document.getElementById('mainPage').classList.remove('hide');
-        setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 30);
-    }
-
-    // Скроллы для навигации
+    function showMainPage() { document.querySelectorAll('.product-page').forEach(p => p.classList.remove('active')); document.getElementById('mainPage').classList.remove('hide'); setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 30); }
     function scrollToServices() { setTimeout(() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' }), 200); }
     function scrollToFeatures() { setTimeout(() => document.getElementById('features').scrollIntoView({ behavior: 'smooth' }), 200); }
     function scrollToReviews() { setTimeout(() => document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' }), 200); }
