@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>МОНРЕПО | Медицинская клиника косметологии</title>
+    <title>МОНРЕПО | SPA & WELLNESS</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -272,7 +272,7 @@
             color: #0b5e4b;
         }
 
-        /* СТРАНИЦА ТОВАРА */
+        /* СТРАНИЦА ТОВАРА — БЕЗ МАЛЕНЬКОЙ ТАБЛИЧКИ */
         .product-page {
             display: none;
             padding: 40px 0 80px;
@@ -326,23 +326,15 @@
 
         .product-image {
             width: 100%;
-            height: 380px;
+            height: 100%;
+            min-height: 450px;
             background-size: cover;
             background-position: center;
             border-radius: 32px;
             border: 1px solid #c8dccf;
         }
 
-        .product-image-small {
-            margin-top: 20px;
-            width: 100%;
-            height: 140px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 24px;
-            border: 1px solid #c8dccf;
-        }
-
+        /* Убран блок с маленькой картинкой и текстом под ней */
         .product-info h1 {
             font-size: 2.5rem;
             color: #1a6e5c;
@@ -387,6 +379,7 @@
             transform: scale(1.02);
         }
 
+        /* Блок "Почему МОНРЕПО" (6 пунктов) */
         .features-section {
             background: #ffffff;
             border-radius: 48px;
@@ -460,6 +453,7 @@
             line-height: 1.5;
         }
 
+        /* Блок отзывов */
         .reviews-section {
             background: #ffffff;
             border-radius: 48px;
@@ -729,7 +723,7 @@
                 padding: 24px;
             }
             .product-image {
-                height: 250px;
+                min-height: 250px;
             }
         }
     </style>
@@ -740,11 +734,11 @@
     <div class="container header-inner">
         <div class="logo" onclick="showMainPage(); scrollToTop()">
             <h1>МОНРЕПО</h1>
-            <p>медицинская клиника косметологии</p>
+            <p>SPA & WELLNESS</p> <!-- Текст изменён -->
         </div>
         <div class="nav">
             <a onclick="showMainPage(); scrollToServices()">Услуги</a>
-            <a onclick="showMainPage(); scrollToFeatures()">О клинике</a>
+            <a onclick="showMainPage(); scrollToFeatures()">О нас</a>
             <a onclick="showMainPage(); scrollToReviews()">Отзывы</a>
             <a onclick="showMainPage(); scrollToContact()">Контакты</a>
         </div>
@@ -771,7 +765,7 @@
     <section class="hero">
         <div class="container">
             <h2>Возвращение к себе</h2>
-            <p>Лицензированная медицинская клиника «МОНРЕПО» — пространство света и воды. Массаж, гидротерапия, косметология под контролем врача.</p>
+            <p>Спа-салон «МОНРЕПО» — пространство света и воды. Массаж, гидротерапия, косметология в атмосфере полного покоя.</p>
         </div>
     </section>
 
@@ -788,7 +782,7 @@
                     </div>
                 </div>
                 <div class="service-card" onclick="showProduct('spa')">
-                   <div class="service-img" style="background-image: url('spa.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="service-img" style="background-image: url('spa.jpg'); background-size: cover; background-position: center;"></div>
                     <div class="service-content">
                         <div class="service-title">SPA-программы</div>
                         <div class="service-desc">«Антистресс», «Детокс», «Романтический уикенд».</div>
@@ -796,7 +790,7 @@
                     </div>
                 </div>
                 <div class="service-card" onclick="showProduct('hydromassage')">
-                    <div class="service-img" style="background-image: url('hydromassage.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="service-img" style="background-image: url('hydro.jpg'); background-size: cover; background-position: center;"></div>
                     <div class="service-content">
                         <div class="service-title">Гидромассаж</div>
                         <div class="service-desc">Подводный душ-массаж, гидрокапсула, жемчужные ванны.</div>
@@ -804,7 +798,7 @@
                     </div>
                 </div>
                 <div class="service-card" onclick="showProduct('cosmetology')">
-                  <div class="service-img" style="background-image: url('cosmetology.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="service-img" style="background-image: url('cosmo.jpg'); background-size: cover; background-position: center;"></div>
                     <div class="service-content">
                         <div class="service-title">Косметология</div>
                         <div class="service-desc">Инъекции, пилинги, RF-лифтинг, микротоки.</div>
@@ -812,7 +806,7 @@
                     </div>
                 </div>
                 <div class="service-card" onclick="showProduct('face')">
-                 <div class="service-img" style="background-image: url('face.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="service-img" style="background-image: url('face.jpg'); background-size: cover; background-position: center;"></div>
                     <div class="service-content">
                         <div class="service-title">Архитектура лица</div>
                         <div class="service-desc">Скульптурный массаж, фейс-билдинг, коррекция овала.</div>
@@ -820,7 +814,7 @@
                     </div>
                 </div>
                 <div class="service-card" onclick="showProduct('other')">
-                <div class="service-img" style="background-image: url('other.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="service-img" style="background-image: url('other.jpg'); background-size: cover; background-position: center;"></div>
                     <div class="service-content">
                         <div class="service-title">Прочие услуги</div>
                         <div class="service-desc">Пилинг тела, стоун-терапия, спа-маникюр.</div>
@@ -831,14 +825,14 @@
 
             <div id="features" class="features-section">
                 <div class="features-title">Почему МОНРЕПО</div>
-                <div class="features-subtitle">Лицензированная клиника, а не салон: ваша безопасность под контролем врача</div>
+                <div class="features-subtitle">Пространство для вашего отдыха и восстановления</div>
                 <div class="features-grid">
-                    <div class="feature-item"><div class="feature-number">01</div><div class="feature-title">Медицинская лицензия</div><div class="feature-desc">Мы — лицензированная медицинская организация, а не салон красоты.</div></div>
-                    <div class="feature-item"><div class="feature-number">02</div><div class="feature-title">Врачи-косметологи</div><div class="feature-desc">Процедуры выполняют специалисты с медицинским образованием.</div></div>
-                    <div class="feature-item"><div class="feature-number">03</div><div class="feature-title">Оригинальные аппараты с регистрацией</div><div class="feature-desc">Всё оборудование имеет регистрационные удостоверения.</div></div>
-                    <div class="feature-item"><div class="feature-number">04</div><div class="feature-title">Индивидуальный подбор</div><div class="feature-desc">Врач не продаёт «пакет», а подбирает решение под вашу задачу на консультации.</div></div>
-                    <div class="feature-item"><div class="feature-number">05</div><div class="feature-title">Сертифицированные препараты</div><div class="feature-desc">Используем только оригинальные препараты с полной документацией.</div></div>
-                    <div class="feature-item"><div class="feature-number">06</div><div class="feature-title">Анонимность и комфорт</div><div class="feature-desc">Индивидуальные кабинеты и полная конфиденциальность.</div></div>
+                    <div class="feature-item"><div class="feature-number">01</div><div class="feature-title">Атмосфера покоя</div><div class="feature-desc">Интерьер и музыка созданы для полного расслабления.</div></div>
+                    <div class="feature-item"><div class="feature-number">02</div><div class="feature-title">Мастера своего дела</div><div class="feature-desc">Большой опыт и знание техник массажа и ухода.</div></div>
+                    <div class="feature-item"><div class="feature-number">03</div><div class="feature-title">Натуральные средства</div><div class="feature-desc">Используем только проверенные масла и косметику.</div></div>
+                    <div class="feature-item"><div class="feature-number">04</div><div class="feature-title">Индивидуальный подход</div><div class="feature-desc">Подбираем программу под ваши пожелания.</div></div>
+                    <div class="feature-item"><div class="feature-number">05</div><div class="feature-title">Современное оборудование</div><div class="feature-desc">Аппараты для комфортного и эффективного ухода.</div></div>
+                    <div class="feature-item"><div class="feature-number">06</div><div class="feature-title">Конфиденциальность</div><div class="feature-desc">Отдельные кабинеты для вашего спокойствия.</div></div>
                 </div>
             </div>
 
@@ -848,7 +842,7 @@
                 <div class="rating-grid">
                     <div class="rating-item"><div class="rating-percent">100%</div><div class="rating-label">Атмосфера</div></div>
                     <div class="rating-item"><div class="rating-percent">95%</div><div class="rating-label">Чистота</div></div>
-                    <div class="rating-item"><div class="rating-percent">91%</div><div class="rating-label">Лазерная эпиляция</div></div>
+                    <div class="rating-item"><div class="rating-percent">91%</div><div class="rating-label">Обслуживание</div></div>
                 </div>
                 <button class="yandex-button" onclick="window.open('https://yandex.ru/maps/org/monrepo/1185194185/reviews/?ll=30.398920%2C59.845325&z=14', '_blank')">Читать все 116 отзывов на Яндекс.Картах</button>
             </div>
@@ -895,18 +889,18 @@
 
     <footer>
         <div class="container">
-            © 2025 МОНРЕПО | Лицензированная медицинская клиника косметологии
+            © 2025 МОНРЕПО | SPA & WELLNESS
         </div>
     </footer>
 </div>
 
-<!-- СТРАНИЦЫ ТОВАРОВ -->
-<div id="productMassage" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%23e0f0ea\'/%3E%3Ccircle cx=\'300\' cy=\'180\' r=\'80\' fill=\'%231a6e5c\' opacity=\'0.2\'/%3E%3Cpath d=\'M220 260 L380 260 L350 320 L250 320 Z\' fill=\'%231a6e5c\' opacity=\'0.3\'/%3E%3Ctext x=\'300\' y=\'200\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'32\' font-weight=\'bold\'%3E🧴 МАССАЖ%3C/text%3E%3C/svg%3E');"></div><div class="product-image-small" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Crect width=\'600\' height=\'200\' fill=\'%23d4e8df\'/%3E%3Ctext x=\'300\' y=\'110\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'24\'%3Eрасслабление мышц%3C/text%3E%3C/svg%3E');"></div></div><div class="product-info"><h1>Массаж тела</h1><div class="product-price">от 3 500 ₽</div><div class="product-duration">⏱ Длительность: 60 / 90 / 120 мин</div><div class="product-description">Классический, тайский, медовый, лимфодренажный массаж. Снимает напряжение, улучшает кровоток, дарит лёгкость.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productSpa" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%23d4e8df\'/%3E%3Cpath d=\'M150 200 Q300 100 450 200\' stroke=\'%231a6e5c\' stroke-width=\'4\' fill=\'none\'/%3E%3Ccircle cx=\'300\' cy=\'250\' r=\'40\' fill=\'%231a6e5c\' opacity=\'0.2\'/%3E%3Ctext x=\'300\' y=\'270\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'28\' font-weight=\'bold\'%3E🌸 СПА%3C/text%3E%3C/svg%3E');"></div><div class="product-image-small" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Crect width=\'600\' height=\'200\' fill=\'%23e0f0ea\'/%3E%3Ctext x=\'300\' y=\'110\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'22\'%3Eобертывания + ароматерапия%3C/text%3E%3C/svg%3E');"></div></div><div class="product-info"><h1>SPA-программы</h1><div class="product-price">от 5 900 ₽</div><div class="product-duration">⏱ 90/120/180 мин</div><div class="product-description">Обертывания, ароматерапия, массаж, чайная церемония.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productHydromassage" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%23c8e0d6\'/%3E%3Cpath d=\'M120 180 L200 140 L280 190 L360 130 L440 180\' stroke=\'%231a6e5c\' stroke-width=\'4\' fill=\'none\'/%3E%3Ctext x=\'300\' y=\'250\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'32\' font-weight=\'bold\'%3E💧 ГИДРО%3C/text%3E%3C/svg%3E');"></div><div class="product-image-small" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Crect width=\'600\' height=\'200\' fill=\'%23d4e8df\'/%3E%3Ctext x=\'300\' y=\'110\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'22\'%3Eжемчужные ванны%3C/text%3E%3C/svg%3E');"></div></div><div class="product-info"><h1>Гидромассаж</h1><div class="product-price">от 2 800 ₽</div><div class="product-duration">⏱ 30/45/60 мин</div><div class="product-description">Подводный массаж, гидрокапсула, жемчужные ванны — расслабление без нагрузки.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productCosmetology" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%23e0f0ea\'/%3E%3Ccircle cx=\'220\' cy=\'180\' r=\'35\' fill=\'%231a6e5c\' opacity=\'0.3\'/%3E%3Ccircle cx=\'380\' cy=\'180\' r=\'35\' fill=\'%231a6e5c\' opacity=\'0.3\'/%3E%3Ctext x=\'300\' y=\'270\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'28\' font-weight=\'bold\'%3E✨ КОСМЕТО%3C/text%3E%3C/svg%3E');"></div><div class="product-image-small" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Crect width=\'600\' height=\'200\' fill=\'%23c8e0d6\'/%3E%3Ctext x=\'300\' y=\'110\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'22\'%3ERF-лифтинг, микротоки%3C/text%3E%3C/svg%3E');"></div></div><div class="product-info"><h1>Косметология</h1><div class="product-price">от 4 000 ₽</div><div class="product-duration">⏱ 60/90 мин</div><div class="product-description">Инъекции, пилинги, RF-лифтинг, микротоки. Медицинский подход.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productFace" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%23d4e8df\'/%3E%3Cpath d=\'M200 160 Q300 130 400 160\' stroke=\'%231a6e5c\' stroke-width=\'3\' fill=\'none\'/%3E%3Ccircle cx=\'240\' cy=\'210\' r=\'18\' fill=\'%231a6e5c\' opacity=\'0.3\'/%3E%3Ccircle cx=\'360\' cy=\'210\' r=\'18\' fill=\'%231a6e5c\' opacity=\'0.3\'/%3E%3Ctext x=\'300\' y=\'270\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'24\' font-weight=\'bold\'%3E👤 АРХИТЕКТУРА ЛИЦА%3C/text%3E%3C/svg%3E');"></div><div class="product-image-small" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Crect width=\'600\' height=\'200\' fill=\'%23e0f0ea\'/%3E%3Ctext x=\'300\' y=\'110\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'22\'%3Eскульптурный массаж%3C/text%3E%3C/svg%3E');"></div></div><div class="product-info"><h1>Архитектура лица</h1><div class="product-price">от 4 500 ₽</div><div class="product-duration">⏱ 60/90 мин</div><div class="product-description">Скульптурный массаж, фейс-билдинг, коррекция овала.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productOther" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%23c8e0d6\'/%3E%3Crect x=\'200\' y=\'150\' width=\'200\' height=\'80\' rx=\'20\' fill=\'%231a6e5c\' opacity=\'0.2\'/%3E%3Ctext x=\'300\' y=\'200\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'28\' font-weight=\'bold\'%3E🪨 ПРОЧИЕ%3C/text%3E%3C/svg%3E');"></div><div class="product-image-small" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Crect width=\'600\' height=\'200\' fill=\'%23d4e8df\'/%3E%3Ctext x=\'300\' y=\'110\' text-anchor=\'middle\' fill=\'%231a6e5c\' font-size=\'22\'%3Eстоун-терапия, спа-маникюр%3C/text%3E%3C/svg%3E');"></div></div><div class="product-info"><h1>Прочие услуги</h1><div class="product-price">по запросу</div><div class="product-duration">уточняется</div><div class="product-description">Стоун-терапия, спа-маникюр, ритуалы для пар.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
+<!-- СТРАНИЦЫ ТОВАРОВ (БЕЗ МАЛЕНЬКОЙ ТАБЛИЧКИ) -->
+<div id="productMassage" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('massage.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Массаж тела</h1><div class="product-price">от 3 500 ₽</div><div class="product-duration">⏱ Длительность: 60 / 90 / 120 мин</div><div class="product-description">Классический, тайский, медовый, лимфодренажный массаж. Снимает напряжение, улучшает кровоток, дарит лёгкость.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
+<div id="productSpa" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('spa.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>SPA-программы</h1><div class="product-price">от 5 900 ₽</div><div class="product-duration">⏱ 90/120/180 мин</div><div class="product-description">Обертывания, ароматерапия, массаж, чайная церемония.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
+<div id="productHydromassage" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('hydro.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Гидромассаж</h1><div class="product-price">от 2 800 ₽</div><div class="product-duration">⏱ 30/45/60 мин</div><div class="product-description">Подводный массаж, гидрокапсула, жемчужные ванны — расслабление без нагрузки.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
+<div id="productCosmetology" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('cosmo.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Косметология</h1><div class="product-price">от 4 000 ₽</div><div class="product-duration">⏱ 60/90 мин</div><div class="product-description">Инъекции, пилинги, RF-лифтинг, микротоки. Медицинский подход.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
+<div id="productFace" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('face.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Архитектура лица</h1><div class="product-price">от 4 500 ₽</div><div class="product-duration">⏱ 60/90 мин</div><div class="product-description">Скульптурный массаж, фейс-билдинг, коррекция овала.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
+<div id="productOther" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('other.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Прочие услуги</h1><div class="product-price">по запросу</div><div class="product-duration">уточняется</div><div class="product-description">Стоун-терапия, спа-маникюр, ритуалы для пар.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
 
 <script>
     // Анимация появления при скролле
