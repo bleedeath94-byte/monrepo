@@ -13,28 +13,11 @@
         .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
         .logo h1 { font-size: 2rem; letter-spacing: -0.5px; font-weight: 800; color: #1a6e5c; cursor: pointer; }
         .logo p { font-size: 0.7rem; color: #6b9a89; letter-spacing: 2px; }
-        .nav { display: flex; gap: 36px; margin: 0 auto; align-items: center; }
+        .nav { display: flex; gap: 36px; margin: 0 auto; align-items: center; flex-wrap: wrap; justify-content: center; }
         .nav a { text-decoration: none; color: #2d6a58; font-weight: 600; transition: 0.2s; cursor: pointer; font-size: 1rem; }
         .nav a:hover { color: #1a6e5c; }
-        /* Новая кнопка в правом верхнем углу */
-        .booking-btn-header {
-            background: #1a6e5c;
-            color: white;
-            padding: 10px 24px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: 0.2s;
-            white-space: nowrap;
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-        }
-        .booking-btn-header:hover {
-            background: #23967e;
-            transform: scale(1.02);
-        }
+        .booking-btn-header { background: #1a6e5c; color: white; padding: 10px 24px; border-radius: 60px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: 0.2s; white-space: nowrap; border: none; cursor: pointer; font-family: inherit; }
+        .booking-btn-header:hover { background: #23967e; transform: scale(1.02); }
         .floating-contact { position: fixed; bottom: 30px; right: 30px; z-index: 1000; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
         .phone-button { background: #1a6e5c; padding: 12px 24px; border-radius: 60px; color: white; font-weight: 700; text-decoration: none; font-size: 1rem; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); transition: 0.2s; }
         .phone-button:hover { background: #23967e; transform: scale(1.02); }
@@ -112,7 +95,7 @@
         footer { text-align: center; padding: 36px; font-size: 0.8rem; color: #8eb3a3; border-top: 1px solid #c8dccf; }
         .main-page { transition: opacity 0.3s ease; }
         .main-page.hide { opacity: 0; pointer-events: none; display: none; }
-        @media (max-width: 900px) { .header-inner { flex-direction: column; } .nav { margin: 0; flex-wrap: wrap; justify-content: center; } .contact-inner { grid-template-columns: 1fr; gap: 40px; justify-items: stretch; } .contact { margin: 40px 20px; } }
+        @media (max-width: 900px) { .header-inner { flex-direction: column; } .nav { margin: 0; } .contact-inner { grid-template-columns: 1fr; gap: 40px; justify-items: stretch; } .contact { margin: 40px 20px; } }
         @media (max-width: 760px) { .container { padding: 0 20px; } .hero h2 { font-size: 2rem; } .hero p { font-size: 1rem; } .features-section, .reviews-section { padding: 32px 24px; } .features-title { font-size: 1.6rem; } .rating-grid { gap: 30px; } .features-grid { grid-template-columns: 1fr; } .floating-contact { bottom: 20px; right: 20px; } .social-links { padding: 6px 12px; } .product-container { grid-template-columns: 1fr; padding: 24px; } .product-image { min-height: 250px; } .contact { margin: 40px 16px; } }
     </style>
 </head>
@@ -129,7 +112,7 @@
             <a onclick="showMainPage(); scrollToFeatures()">О нас</a>
             <a onclick="showMainPage(); scrollToReviews()">Отзывы</a>
             <a onclick="showMainPage(); scrollToContact()">Контакты</a>
-            <button class="booking-btn-header" onclick="showMainPage(); scrollToBooking()">📅 Записаться онлайн</button>
+            <button class="booking-btn-header" onclick="scrollToBookingDirect()">📅 Записаться онлайн</button>
         </div>
     </div>
 </header>
@@ -249,12 +232,12 @@
     <footer><div class="container">© 2026 МОНРЕПО | SPA & WELLNESS</div></footer>
 </div>
 
-<div id="productMassage" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('massage.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Массаж тела</h1><div class="product-price">от 3 500 ₽</div><div class="product-duration">⏱ Длительность: 60 / 90 / 120 мин</div><div class="product-description">Классический, тайский, медовый, лимфодренажный массаж. Снимает напряжение, улучшает кровоток, дарит лёгкость.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productSpa" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('spa.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>SPA-программы</h1><div class="product-price">от 5 900 ₽</div><div class="product-duration">⏱ 90/120/180 мин</div><div class="product-description">Обертывания, ароматерапия, массаж, чайная церемония.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productHydromassage" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('hydromassage.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Гидромассаж</h1><div class="product-price">от 2 800 ₽</div><div class="product-duration">⏱ 30/45/60 мин</div><div class="product-description">Подводный массаж, гидрокапсула, жемчужные ванны — расслабление без нагрузки.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productCosmetology" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('cosmetology.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Косметология</h1><div class="product-price">от 4 000 ₽</div><div class="product-duration">⏱ 60/90 мин</div><div class="product-description">Инъекции, пилинги, RF-лифтинг, микротоки. Медицинский подход.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productFace" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('face.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Архитектура лица</h1><div class="product-price">от 4 500 ₽</div><div class="product-duration">⏱ 60/90 мин</div><div class="product-description">Скульптурный массаж, фейс-билдинг, коррекция овала.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productOther" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('other.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Прочие услуги</h1><div class="product-price">по запросу</div><div class="product-duration">уточняется</div><div class="product-description">Стоун-терапия, спа-маникюр, ритуалы для пар.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
+<div id="productMassage" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('massage.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Массаж тела</h1><div class="product-price">от 3 500 ₽</div><div class="product-duration">⏱ Длительность: 60 / 90 / 120 мин</div><div class="product-description">Классический, тайский, медовый, лимфодренажный массаж. Снимает напряжение, улучшает кровоток, дарит лёгкость.</div><button class="book-btn" onclick="showMainPage(); scrollToBookingDirect()">Записаться сейчас</button></div></div></div></div>
+<div id="productSpa" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('spa.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>SPA-программы</h1><div class="product-price">от 5 900 ₽</div><div class="product-duration">⏱ 90/120/180 мин</div><div class="product-description">Обертывания, ароматерапия, массаж, чайная церемония.</div><button class="book-btn" onclick="showMainPage(); scrollToBookingDirect()">Записаться сейчас</button></div></div></div></div>
+<div id="productHydromassage" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('hydromassage.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Гидромассаж</h1><div class="product-price">от 2 800 ₽</div><div class="product-duration">⏱ 30/45/60 мин</div><div class="product-description">Подводный массаж, гидрокапсула, жемчужные ванны — расслабление без нагрузки.</div><button class="book-btn" onclick="showMainPage(); scrollToBookingDirect()">Записаться сейчас</button></div></div></div></div>
+<div id="productCosmetology" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('cosmetology.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Косметология</h1><div class="product-price">от 4 000 ₽</div><div class="product-duration">⏱ 60/90 мин</div><div class="product-description">Инъекции, пилинги, RF-лифтинг, микротоки. Медицинский подход.</div><button class="book-btn" onclick="showMainPage(); scrollToBookingDirect()">Записаться сейчас</button></div></div></div></div>
+<div id="productFace" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('face.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Архитектура лица</h1><div class="product-price">от 4 500 ₽</div><div class="product-duration">⏱ 60/90 мин</div><div class="product-description">Скульптурный массаж, фейс-билдинг, коррекция овала.</div><button class="book-btn" onclick="showMainPage(); scrollToBookingDirect()">Записаться сейчас</button></div></div></div></div>
+<div id="productOther" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('other.jpg'); background-size: cover; background-position: center;"></div></div><div class="product-info"><h1>Прочие услуги</h1><div class="product-price">по запросу</div><div class="product-duration">уточняется</div><div class="product-description">Стоун-терапия, спа-маникюр, ритуалы для пар.</div><button class="book-btn" onclick="showMainPage(); scrollToBookingDirect()">Записаться сейчас</button></div></div></div></div>
 
 <script>
     const animatedElements = document.querySelectorAll('.service-card, .features-section, .reviews-section, .extra-services, .contact');
@@ -275,18 +258,30 @@
     function scrollToFeatures() { setTimeout(() => document.getElementById('features').scrollIntoView({ behavior: 'smooth' }), 200); }
     function scrollToReviews() { setTimeout(() => document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' }), 200); }
     function scrollToContact() { setTimeout(() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }), 200); }
-    function scrollToBooking() { 
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    
+    // Новая рабочая функция для кнопки "Записаться онлайн"
+    function scrollToBookingDirect() {
         // Сначала показываем главную страницу (если мы на странице услуги)
         if (document.querySelector('.product-page.active')) {
             showMainPage();
             setTimeout(() => {
-                document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
-            }, 300);
+                const form = document.getElementById('booking');
+                if (form) {
+                    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    document.querySelector('.contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 350);
         } else {
-            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            const form = document.getElementById('booking');
+            if (form) {
+                form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                document.querySelector('.contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         }
     }
-    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 </script>
 </body>
 </html>
