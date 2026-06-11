@@ -283,10 +283,10 @@
         }
     }
 
-    // ========== ОТПРАВКА В TELEGRAM ==========
-    // 👇👇👇 СЮДА ВСТАВЬ СВОИ ДАННЫЕ 👇👇👇
-    const BOT_TOKEN = '8777546018:AAFt7MRFrtWFLYJcsNVCnJrKkT3Dh4nnYbo';   // Замени на токен от @BotFather
-    const CHAT_ID = '6726660968';       // Замени на ID от @userinfobot
+    // ========== ОТПРАВКА В TELEGRAM (рабочий вариант с GET-запросом) ==========
+    // 👇👇👇 ВСТАВЬ СВОИ ДАННЫЕ СЮДА 👇👇👇
+    const BOT_TOKEN = 'ТВОЙ_ТОКЕН_БОТА';   // Замени на токен от @BotFather
+    const CHAT_ID = 'ТВОЙ_CHAT_ID';       // Замени на ID от @userinfobot
     // 👆👆👆
 
     const form = document.getElementById('tgForm');
@@ -305,25 +305,25 @@
             
             const message = `🆕 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n💆‍♂️ Услуга: ${service}\n📅 Дата/время: ${date}`;
             
-            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+            // GET-запрос (более надёжный)
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(message)}`;
             
             try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: CHAT_ID, text: message })
-                });
+                const response = await fetch(url);
+                const result = await response.json();
                 
-                if (response.ok) {
+                if (result.ok) {
                     statusDiv.innerHTML = '✅ Заявка отправлена! Мы свяжемся с вами в течение 20 минут.';
                     statusDiv.style.color = '#2e7d32';
                     form.reset();
                 } else {
-                    statusDiv.innerHTML = '❌ Ошибка отправки. Попробуйте позвонить нам по телефону.';
+                    console.error('Telegram error:', result);
+                    statusDiv.innerHTML = '❌ Ошибка: ' + (result.description || 'проверьте токен и chat ID');
                     statusDiv.style.color = '#c62828';
                 }
             } catch (error) {
-                statusDiv.innerHTML = '❌ Ошибка сети. Попробуйте ещё раз.';
+                console.error('Network error:', error);
+                statusDiv.innerHTML = '❌ Ошибка сети. Проверьте интернет и консоль (F12).';
                 statusDiv.style.color = '#c62828';
             }
         });
