@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>МОНРЕПО | Спа-салон</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <title>МОНРЕПО | Медицинская клиника косметологии</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,21 +14,20 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #ffffff 0%, #e0f0eb 50%, #c5e0d8 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #e8f3ef 50%, #d0e8e0 100%);
             color: #1a3a32;
             scroll-behavior: smooth;
             line-height: 1.5;
-            min-height: 100vh;
         }
 
         .container {
-            max-width: 1280px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 32px;
         }
 
         .header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
@@ -74,29 +73,30 @@
         }
 
         .hero {
-            background: linear-gradient(125deg, #d4efe8 0%, #ffffff 80%);
-            padding: 70px 0;
+            background: linear-gradient(135deg, #0a4c40 0%, #0d5e4f 50%, #0a4c40 100%);
+            padding: 80px 0;
             text-align: center;
             border-radius: 0 0 56px 56px;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #b8d5cc;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #2a7a68;
         }
 
         .hero h2 {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            color: #0f6b58;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
+            font-size: 1.3rem;
+            max-width: 800px;
             margin: 20px auto 0;
-            color: #2a6b5c;
+            color: #d4efe8;
         }
 
         .services-section {
-            padding: 50px 0 70px;
+            padding: 50px 0 60px;
         }
 
         .section-title {
@@ -109,7 +109,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 40px;
         }
 
@@ -121,6 +121,14 @@
             transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
             cursor: pointer;
             border: 1px solid #b8d5cc;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s, border-color 0.35s;
+        }
+
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .service-card:hover {
@@ -178,13 +186,160 @@
             color: #0b5e4b;
         }
 
+        .features-section {
+            background: #ffffff;
+            border-radius: 48px;
+            padding: 60px 48px;
+            margin: 40px 0;
+            border: 1px solid #b8d5cc;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .features-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .features-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0a4c40;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .features-subtitle {
+            text-align: center;
+            color: #4f7a6e;
+            font-size: 1.1rem;
+            margin-bottom: 48px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .feature-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #166554;
+            margin-bottom: 16px;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a3a32;
+            margin-bottom: 12px;
+        }
+
+        .feature-desc {
+            color: #5f8b7e;
+            line-height: 1.5;
+        }
+
+        .reviews-section {
+            background: #ffffff;
+            border-radius: 48px;
+            padding: 60px 48px;
+            margin: 40px 0;
+            border: 1px solid #b8d5cc;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reviews-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .rating-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #166554, #0f8b72);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 60px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .rating-stats {
+            font-size: 1rem;
+            color: #4f7a6e;
+            margin-bottom: 40px;
+        }
+
+        .rating-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .rating-item {
+            text-align: center;
+        }
+
+        .rating-percent {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #166554;
+        }
+
+        .rating-label {
+            color: #5f8b7e;
+            font-size: 0.9rem;
+        }
+
+        .yandex-button {
+            background: #f5c542;
+            border: none;
+            padding: 16px 36px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #000000;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .yandex-button:hover {
+            background: #e6b320;
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
         .extra-services {
-            margin-top: 70px;
+            margin-top: 50px;
             background: #ffffffcc;
             backdrop-filter: blur(4px);
             border-radius: 48px;
             padding: 44px 36px;
             border: 1px solid #b8d5cc;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .extra-services.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .extra-title {
@@ -226,6 +381,14 @@
             border-radius: 48px;
             margin: 50px 0 40px;
             border: 1px solid #b8d5cc;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .contact.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .contact-inner {
@@ -296,131 +459,10 @@
             border-top: 1px solid #b8d5cc;
         }
 
-        .main-page {
-            transition: opacity 0.3s ease;
-        }
-
-        .main-page.hide {
-            opacity: 0;
-            pointer-events: none;
-            display: none;
-        }
-
-        .product-page {
-            display: none;
-            padding: 40px 0 80px;
-            min-height: 100vh;
-        }
-
-        .product-page.active {
-            display: block;
-            animation: slideFromTop 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
-        }
-
-        @keyframes slideFromTop {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .back-button {
-            display: inline-block;
-            background: #d4efe8;
-            color: #166554;
-            border: 1px solid #8fc5b8;
-            padding: 12px 28px;
-            border-radius: 60px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-bottom: 40px;
-            transition: 0.2s;
-        }
-
-        .back-button:hover {
-            background: #bee0d6;
-            transform: translateX(-5px);
-        }
-
-        .product-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            background: #ffffff;
-            border-radius: 48px;
-            padding: 48px;
-            border: 1px solid #b8d5cc;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 380px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 32px;
-            border: 1px solid #b8d5cc;
-        }
-
-        .product-image-small {
-            margin-top: 20px;
-            width: 100%;
-            height: 140px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 24px;
-            border: 1px solid #b8d5cc;
-        }
-
-        .product-info h1 {
-            font-size: 2.5rem;
-            color: #166554;
-            margin-bottom: 20px;
-        }
-
-        .product-price {
-            font-size: 2rem;
-            color: #0f8b72;
-            font-weight: 700;
-            margin: 20px 0;
-        }
-
-        .product-duration {
-            color: #2a6b5c;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .product-description {
-            color: #4f6f64;
-            line-height: 1.7;
-            margin: 25px 0;
-            font-size: 1.05rem;
-        }
-
-        .book-btn {
-            background: #166554;
-            color: white;
-            border: none;
-            padding: 14px 32px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: 0.2s;
-        }
-
-        .book-btn:hover {
-            background: #0f8b72;
-            transform: scale(1.02);
-        }
-
         @media (max-width: 760px) {
+            .container {
+                padding: 0 20px;
+            }
             .contact-inner {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -428,12 +470,17 @@
             .hero h2 {
                 font-size: 2rem;
             }
-            .product-container {
-                grid-template-columns: 1fr;
-                padding: 24px;
+            .hero p {
+                font-size: 1rem;
             }
-            .product-image {
-                height: 250px;
+            .features-section, .reviews-section {
+                padding: 32px 24px;
+            }
+            .features-title {
+                font-size: 1.6rem;
+            }
+            .rating-grid {
+                gap: 30px;
             }
         }
     </style>
@@ -442,152 +489,201 @@
 
 <header class="header">
     <div class="container header-inner">
-        <div class="logo" onclick="showMainPage()">
+        <div class="logo" onclick="scrollToTop()">
             <h1>МОНРЕПО</h1>
-            <p>spa & wellness sanctuary</p>
+            <p>медицинская клиника косметологии</p>
         </div>
         <div class="nav">
-            <a onclick="showMainPage(); scrollToServices()">Услуги</a>
-            <a onclick="showMainPage(); scrollToContact()">Контакты</a>
-            <a onclick="showMainPage(); scrollToBooking()">Запись</a>
+            <a onclick="scrollToServices()">Услуги</a>
+            <a onclick="scrollToFeatures()">О клинике</a>
+            <a onclick="scrollToReviews()">Отзывы</a>
+            <a onclick="scrollToContact()">Контакты</a>
         </div>
     </div>
 </header>
 
-<!-- ОСНОВНАЯ СТРАНИЦА -->
-<div id="mainPage" class="main-page">
-    <section class="hero">
-        <div class="container">
-            <h2>Возвращение к себе</h2>
-            <p>Спа-салон «МОНРЕПО» — пространство света и воды. Массаж, гидротерапия, косметология в атмосфере полного покоя.</p>
-        </div>
-    </section>
+<section class="hero">
+    <div class="container">
+        <h2>Возвращение к себе</h2>
+        <p>Лицензированная медицинская клиника «МОНРЕПО» — пространство света и воды. Массаж, гидротерапия, косметология под контролем врача.</p>
+    </div>
+</section>
 
-    <section id="services" class="services-section">
-        <div class="container">
-            <div class="section-title">Наши ритуалы</div>
-            <div class="services-grid">
-                <div class="service-card" onclick="showProduct('massage')">
-                    <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23d4efe8\'/%3E%3Ccircle cx=\'200\' cy=\'120\' r=\'50\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Cpath d=\'M150 180 L250 180 L230 210 L170 210 Z\' fill=\'%23166554\' opacity=\'0.4\'/%3E%3Ctext x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'20\' font-weight=\'bold\'%3E🧴 МАССАЖ%3C/text%3E%3C/svg%3E');"></div>
-                    <div class="service-content">
-                        <div class="service-title">Массаж тела</div>
-                        <div class="service-desc">Классический, тайский, медовый, лимфодренаж.</div>
-                        <span class="price-badge">от 3 500 ₽ / 60 мин</span>
-                    </div>
-                </div>
-                <div class="service-card" onclick="showProduct('spa')">
-                    <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23c5e0d8\'/%3E%3Cpath d=\'M100 130 Q200 80 300 130\' stroke=\'%23166554\' stroke-width=\'3\' fill=\'none\' opacity=\'0.5\'/%3E%3Ccircle cx=\'200\' cy=\'150\' r=\'30\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Ctext x=\'200\' y=\'160\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'18\' font-weight=\'bold\'%3E🌸 СПА%3C/text%3E%3C/svg%3E');"></div>
-                    <div class="service-content">
-                        <div class="service-title">SPA-программы</div>
-                        <div class="service-desc">«Антистресс», «Детокс», «Романтический уикенд».</div>
-                        <span class="price-badge">от 5 900 ₽ / сеанс</span>
-                    </div>
-                </div>
-                <div class="service-card" onclick="showProduct('hydromassage')">
-                    <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23b8d5cc\'/%3E%3Cpath d=\'M80 130 L120 110 L160 140 L200 100 L240 135 L280 105 L320 130\' stroke=\'%23166554\' stroke-width=\'3\' fill=\'none\' opacity=\'0.6\'/%3E%3Ctext x=\'200\' y=\'170\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'18\' font-weight=\'bold\'%3E💧 ГИДРО%3C/text%3E%3C/svg%3E');"></div>
-                    <div class="service-content">
-                        <div class="service-title">Гидромассаж</div>
-                        <div class="service-desc">Подводный душ-массаж, гидрокапсула, жемчужные ванны.</div>
-                        <span class="price-badge">от 2 800 ₽ / 30 мин</span>
-                    </div>
-                </div>
-                <div class="service-card" onclick="showProduct('cosmetology')">
-                    <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23d4efe8\'/%3E%3Ccircle cx=\'160\' cy=\'120\' r=\'25\' fill=\'%23166554\' opacity=\'0.4\'/%3E%3Ccircle cx=\'240\' cy=\'120\' r=\'25\' fill=\'%23166554\' opacity=\'0.4\'/%3E%3Ctext x=\'200\' y=\'170\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'18\' font-weight=\'bold\'%3E✨ КОСМЕТО%3C/text%3E%3C/svg%3E');"></div>
-                    <div class="service-content">
-                        <div class="service-title">Косметология</div>
-                        <div class="service-desc">Инъекции, пилинги, RF-лифтинг, микротоки.</div>
-                        <span class="price-badge">от 4 000 ₽</span>
-                    </div>
-                </div>
-                <div class="service-card" onclick="showProduct('face')">
-                    <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23c5e0d8\'/%3E%3Cpath d=\'M140 110 Q200 90 260 110\' stroke=\'%23166554\' stroke-width=\'2\' fill=\'none\' opacity=\'0.5\'/%3E%3Ccircle cx=\'170\' cy=\'145\' r=\'12\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Ccircle cx=\'230\' cy=\'145\' r=\'12\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Ctext x=\'200\' y=\'180\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'16\' font-weight=\'bold\'%3E👤 АРХИТЕКТУРА ЛИЦА%3C/text%3E%3C/svg%3E');"></div>
-                    <div class="service-content">
-                        <div class="service-title">Архитектура лица</div>
-                        <div class="service-desc">Скульптурный массаж, фейс-билдинг, коррекция овала.</div>
-                        <span class="price-badge">от 4 500 ₽ / сеанс</span>
-                    </div>
-                </div>
-                <div class="service-card" onclick="showProduct('other')">
-                    <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23b8d5cc\'/%3E%3Crect x=\'130\' y=\'100\' width=\'140\' height=\'60\' rx=\'15\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Ctext x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'18\' font-weight=\'bold\'%3E🪨 ПРОЧИЕ%3C/text%3E%3C/svg%3E');"></div>
-                    <div class="service-content">
-                        <div class="service-title">Прочие услуги</div>
-                        <div class="service-desc">Пилинг тела, стоун-терапия, спа-маникюр.</div>
-                        <span class="price-badge">по запросу</span>
-                    </div>
+<section id="services" class="services-section">
+    <div class="container">
+        <div class="section-title">Наши ритуалы</div>
+        <div class="services-grid" id="servicesGrid">
+            <!-- 6 карточек услуг -->
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23d4efe8\'/%3E%3Ccircle cx=\'200\' cy=\'120\' r=\'50\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Cpath d=\'M150 180 L250 180 L230 210 L170 210 Z\' fill=\'%23166554\' opacity=\'0.4\'/%3E%3Ctext x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'20\' font-weight=\'bold\'%3E🧴 МАССАЖ%3C/text%3E%3C/svg%3E');"></div>
+                <div class="service-content">
+                    <div class="service-title">Массаж тела</div>
+                    <div class="service-desc">Классический, тайский, медовый, лимфодренаж.</div>
+                    <span class="price-badge">от 3 500 ₽ / 60 мин</span>
                 </div>
             </div>
-
-            <div class="extra-services">
-                <div class="extra-title">Полный спектр «Прочие услуги»</div>
-                <div class="extra-list">
-                    <span class="extra-item">Пилинг всего тела</span>
-                    <span class="extra-item">Стоун-терапия</span>
-                    <span class="extra-item">Спа-маникюр/педикюр</span>
-                    <span class="extra-item">Бразильская депиляция</span>
-                    <span class="extra-item">Ритуалы для пар</span>
-                    <span class="extra-item">Аромарасчесывание</span>
-                    <span class="extra-item">Инфракрасная сауна</span>
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23c5e0d8\'/%3E%3Cpath d=\'M100 130 Q200 80 300 130\' stroke=\'%23166554\' stroke-width=\'3\' fill=\'none\' opacity=\'0.5\'/%3E%3Ccircle cx=\'200\' cy=\'150\' r=\'30\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Ctext x=\'200\' y=\'160\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'18\' font-weight=\'bold\'%3E🌸 СПА%3C/text%3E%3C/svg%3E');"></div>
+                <div class="service-content">
+                    <div class="service-title">SPA-программы</div>
+                    <div class="service-desc">«Антистресс», «Детокс», «Романтический уикенд».</div>
+                    <span class="price-badge">от 5 900 ₽ / сеанс</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23b8d5cc\'/%3E%3Cpath d=\'M80 130 L120 110 L160 140 L200 100 L240 135 L280 105 L320 130\' stroke=\'%23166554\' stroke-width=\'3\' fill=\'none\' opacity=\'0.6\'/%3E%3Ctext x=\'200\' y=\'170\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'18\' font-weight=\'bold\'%3E💧 ГИДРО%3C/text%3E%3C/svg%3E');"></div>
+                <div class="service-content">
+                    <div class="service-title">Гидромассаж</div>
+                    <div class="service-desc">Подводный душ-массаж, гидрокапсула, жемчужные ванны.</div>
+                    <span class="price-badge">от 2 800 ₽ / 30 мин</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23d4efe8\'/%3E%3Ccircle cx=\'160\' cy=\'120\' r=\'25\' fill=\'%23166554\' opacity=\'0.4\'/%3E%3Ccircle cx=\'240\' cy=\'120\' r=\'25\' fill=\'%23166554\' opacity=\'0.4\'/%3E%3Ctext x=\'200\' y=\'170\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'18\' font-weight=\'bold\'%3E✨ КОСМЕТО%3C/text%3E%3C/svg%3E');"></div>
+                <div class="service-content">
+                    <div class="service-title">Косметология</div>
+                    <div class="service-desc">Инъекции, пилинги, RF-лифтинг, микротоки.</div>
+                    <span class="price-badge">от 4 000 ₽</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23c5e0d8\'/%3E%3Cpath d=\'M140 110 Q200 90 260 110\' stroke=\'%23166554\' stroke-width=\'2\' fill=\'none\' opacity=\'0.5\'/%3E%3Ccircle cx=\'170\' cy=\'145\' r=\'12\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Ccircle cx=\'230\' cy=\'145\' r=\'12\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Ctext x=\'200\' y=\'180\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'16\' font-weight=\'bold\'%3E👤 АРХИТЕКТУРА ЛИЦА%3C/text%3E%3C/svg%3E');"></div>
+                <div class="service-content">
+                    <div class="service-title">Архитектура лица</div>
+                    <div class="service-desc">Скульптурный массаж, фейс-билдинг, коррекция овала.</div>
+                    <span class="price-badge">от 4 500 ₽ / сеанс</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23b8d5cc\'/%3E%3Crect x=\'130\' y=\'100\' width=\'140\' height=\'60\' rx=\'15\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Ctext x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'18\' font-weight=\'bold\'%3E🪨 ПРОЧИЕ%3C/text%3E%3C/svg%3E');"></div>
+                <div class="service-content">
+                    <div class="service-title">Прочие услуги</div>
+                    <div class="service-desc">Пилинг тела, стоун-терапия, спа-маникюр.</div>
+                    <span class="price-badge">по запросу</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <div id="contact" class="container">
-        <div class="contact">
-            <div class="contact-inner">
-                <div class="contact-info">
-                    <h3>Mon Repo</h3>
-                    <div class="contact-details">
-                        <p>📍 Санкт-Петербург, Каменный остров, 14</p>
-                        <p>📞 +7 (812) 555-22-33</p>
-                        <p>✉️ spa@monrepo.ru</p>
-                        <p>⏰ Ежедневно 10:00 – 23:00</p>
-                    </div>
+        <div id="features" class="features-section">
+            <div class="features-title">Почему МОНРЕПО</div>
+            <div class="features-subtitle">Лицензированная клиника, а не салон: ваша безопасность под контролем врача</div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-number">01</div>
+                    <div class="feature-title">Медицинская лицензия</div>
+                    <div class="feature-desc">Мы — лицензированная медицинская организация, а не салон красоты.</div>
                 </div>
-                <div id="booking" class="contact-form">
-                    <h3>Онлайн-запись</h3>
-                    <input type="text" placeholder="Ваше имя">
-                    <input type="tel" placeholder="Телефон">
-                    <input type="text" placeholder="Услуга или пожелания">
-                    <textarea rows="3" placeholder="Дата и время..."></textarea>
-                    <button onclick="alert('Спасибо! МОНРЕПО свяжется с вами.')">Отправить заявку</button>
-                    <p style="font-size:12px; margin-top:14px; opacity:0.7;">Ответ в течение 20 минут</p>
+                <div class="feature-item">
+                    <div class="feature-number">02</div>
+                    <div class="feature-title">Врачи-косметологи</div>
+                    <div class="feature-desc">Процедуры выполняют специалисты с медицинским образованием.</div>
                 </div>
+                <div class="feature-item">
+                    <div class="feature-number">03</div>
+                    <div class="feature-title">Оригинальные аппараты с регистрацией</div>
+                    <div class="feature-desc">Всё оборудование имеет регистрационные удостоверения.</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">04</div>
+                    <div class="feature-title">Индивидуальный подбор</div>
+                    <div class="feature-desc">Врач не продаёт «пакет», а подбирает решение под вашу задачу на консультации.</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="reviews" class="reviews-section">
+            <div class="rating-badge">4.9</div>
+            <div class="rating-stats">на Яндексе по 200 оценкам — что говорят пациенты</div>
+            <div class="rating-grid">
+                <div class="rating-item">
+                    <div class="rating-percent">100%</div>
+                    <div class="rating-label">Атмосфера</div>
+                </div>
+                <div class="rating-item">
+                    <div class="rating-percent">95%</div>
+                    <div class="rating-label">Чистота</div>
+                </div>
+                <div class="rating-item">
+                    <div class="rating-percent">91%</div>
+                    <div class="rating-label">Лазерная эпиляция</div>
+                </div>
+            </div>
+            <button class="yandex-button" onclick="window.open('https://yandex.ru/maps/org/monrepo/1185194185/reviews/?ll=30.398920%2C59.845325&z=14', '_blank')">
+                Читать все 116 отзывов на Яндекс.Картах
+            </button>
+        </div>
+
+        <div class="extra-services">
+            <div class="extra-title">Полный спектр «Прочие услуги»</div>
+            <div class="extra-list">
+                <span class="extra-item">Пилинг всего тела</span>
+                <span class="extra-item">Стоун-терапия</span>
+                <span class="extra-item">Спа-маникюр/педикюр</span>
+                <span class="extra-item">Бразильская депиляция</span>
+                <span class="extra-item">Ритуалы для пар</span>
+                <span class="extra-item">Аромарасчесывание</span>
+                <span class="extra-item">Инфракрасная сауна</span>
             </div>
         </div>
     </div>
+</section>
 
-    <footer>
-        <div class="container">
-            © 2025 Спа-салон МОНРЕПО. Гармония внутри.
+<div id="contact" class="container">
+    <div class="contact">
+        <div class="contact-inner">
+            <div class="contact-info">
+                <h3>Mon Repo</h3>
+                <div class="contact-details">
+                    <p>📍 Санкт-Петербург, Каменный остров, 14</p>
+                    <p>📞 +7 (812) 555-22-33</p>
+                    <p>✉️ spa@monrepo.ru</p>
+                    <p>⏰ Ежедневно 10:00 – 23:00</p>
+                </div>
+            </div>
+            <div id="booking" class="contact-form">
+                <h3>Онлайн-запись</h3>
+                <input type="text" placeholder="Ваше имя">
+                <input type="tel" placeholder="Телефон">
+                <input type="text" placeholder="Услуга или пожелания">
+                <textarea rows="3" placeholder="Дата и время..."></textarea>
+                <button onclick="alert('Спасибо! МОНРЕПО свяжется с вами.')">Отправить заявку</button>
+                <p style="font-size:12px; margin-top:14px; opacity:0.7;">Ответ в течение 20 минут</p>
+            </div>
         </div>
-    </footer>
+    </div>
 </div>
 
-<!-- СТРАНИЦЫ УСЛУГ (с красивыми спа-изображениями) -->
-<div id="productMassage" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%23d4efe8\'/%3E%3Ccircle cx=\'300\' cy=\'180\' r=\'80\' fill=\'%23166554\' opacity=\'0.2\'/%3E%3Cpath d=\'M220 260 L380 260 L350 320 L250 320 Z\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Ctext x=\'300\' y=\'200\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'32\' font-weight=\'bold\'%3E🧴 МАССАЖ%3C/text%3E%3C/svg%3E');"></div><div class="product-image-small" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Crect width=\'600\' height=\'200\' fill=\'%23c5e0d8\'/%3E%3Cpath d=\'M150 100 L250 70 L350 100 L450 70\' stroke=\'%23166554\' stroke-width=\'3\' fill=\'none\'/%3E%3Ctext x=\'300\' y=\'130\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'24\'%3Eрасслабление мышц%3C/text%3E%3C/svg%3E');"></div></div><div class="product-info"><h1>Массаж тела</h1><div class="product-price">от 3 500 ₽</div><div class="product-duration">⏱ Длительность: 60 / 90 / 120 мин</div><div class="product-description">Классический, тайский, медовый, лимфодренажный массаж. Снимает напряжение, улучшает кровоток, дарит лёгкость.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productSpa" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%23c5e0d8\'/%3E%3Cpath d=\'M150 200 Q300 100 450 200\' stroke=\'%23166554\' stroke-width=\'4\' fill=\'none\'/%3E%3Ccircle cx=\'300\' cy=\'250\' r=\'40\' fill=\'%23166554\' opacity=\'0.2\'/%3E%3Ctext x=\'300\' y=\'270\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'28\' font-weight=\'bold\'%3E🌸 СПА%3C/text%3E%3C/svg%3E');"></div><div class="product-image-small" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Crect width=\'600\' height=\'200\' fill=\'%23d4efe8\'/%3E%3Ctext x=\'300\' y=\'110\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'22\'%3Eобертывания + ароматерапия%3C/text%3E%3C/svg%3E');"></div></div><div class="product-info"><h1>SPA-программы</h1><div class="product-price">от 5 900 ₽</div><div class="product-duration">⏱ 90/120/180 мин</div><div class="product-description">Обертывания, ароматерапия, массаж, чайная церемония.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productHydromassage" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%23b8d5cc\'/%3E%3Cpath d=\'M120 180 L200 140 L280 190 L360 130 L440 180\' stroke=\'%23166554\' stroke-width=\'4\' fill=\'none\'/%3E%3Ctext x=\'300\' y=\'250\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'32\' font-weight=\'bold\'%3E💧 ГИДРО%3C/text%3E%3C/svg%3E');"></div><div class="product-image-small" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Crect width=\'600\' height=\'200\' fill=\'%23c5e0d8\'/%3E%3Ctext x=\'300\' y=\'110\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'22\'%3Eжемчужные ванны%3C/text%3E%3C/svg%3E');"></div></div><div class="product-info"><h1>Гидромассаж</h1><div class="product-price">от 2 800 ₽</div><div class="product-duration">⏱ 30/45/60 мин</div><div class="product-description">Подводный массаж, гидрокапсула, жемчужные ванны — расслабление без нагрузки.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productCosmetology" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%23d4efe8\'/%3E%3Ccircle cx=\'220\' cy=\'180\' r=\'35\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Ccircle cx=\'380\' cy=\'180\' r=\'35\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Ctext x=\'300\' y=\'270\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'28\' font-weight=\'bold\'%3E✨ КОСМЕТО%3C/text%3E%3C/svg%3E');"></div><div class="product-image-small" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Crect width=\'600\' height=\'200\' fill=\'%23b8d5cc\'/%3E%3Ctext x=\'300\' y=\'110\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'22\'%3ERF-лифтинг, микротоки%3C/text%3E%3C/svg%3E');"></div></div><div class="product-info"><h1>Косметология</h1><div class="product-price">от 4 000 ₽</div><div class="product-duration">⏱ 60/90 мин</div><div class="product-description">Инъекции, пилинги, RF-лифтинг, микротоки. Медицинский подход.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productFace" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%23c5e0d8\'/%3E%3Cpath d=\'M200 160 Q300 130 400 160\' stroke=\'%23166554\' stroke-width=\'3\' fill=\'none\'/%3E%3Ccircle cx=\'240\' cy=\'210\' r=\'18\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Ccircle cx=\'360\' cy=\'210\' r=\'18\' fill=\'%23166554\' opacity=\'0.3\'/%3E%3Ctext x=\'300\' y=\'270\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'24\' font-weight=\'bold\'%3E👤 АРХИТЕКТУРА ЛИЦА%3C/text%3E%3C/svg%3E');"></div><div class="product-image-small" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Crect width=\'600\' height=\'200\' fill=\'%23d4efe8\'/%3E%3Ctext x=\'300\' y=\'110\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'22\'%3Eскульптурный массаж%3C/text%3E%3C/svg%3E');"></div></div><div class="product-info"><h1>Архитектура лица</h1><div class="product-price">от 4 500 ₽</div><div class="product-duration">⏱ 60/90 мин</div><div class="product-description">Скульптурный массаж, фейс-билдинг, коррекция овала.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
-<div id="productOther" class="product-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="product-container"><div><div class="product-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%23b8d5cc\'/%3E%3Crect x=\'200\' y=\'150\' width=\'200\' height=\'80\' rx=\'20\' fill=\'%23166554\' opacity=\'0.2\'/%3E%3Ctext x=\'300\' y=\'200\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'28\' font-weight=\'bold\'%3E🪨 ПРОЧИЕ%3C/text%3E%3C/svg%3E');"></div><div class="product-image-small" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Crect width=\'600\' height=\'200\' fill=\'%23c5e0d8\'/%3E%3Ctext x=\'300\' y=\'110\' text-anchor=\'middle\' fill=\'%23166554\' font-size=\'22\'%3Eстоун-терапия, спа-маникюр%3C/text%3E%3C/svg%3E');"></div></div><div class="product-info"><h1>Прочие услуги</h1><div class="product-price">по запросу</div><div class="product-duration">уточняется</div><div class="product-description">Стоун-терапия, спа-маникюр, ритуалы для пар.</div><button class="book-btn" onclick="showMainPage(); scrollToBooking()">Записаться сейчас</button></div></div></div></div>
+<footer>
+    <div class="container">
+        © 2025 МОНРЕПО | Лицензированная медицинская клиника косметологии
+    </div>
+</footer>
 
 <script>
-    function showProduct(productId) {
-        document.getElementById('mainPage').classList.add('hide');
-        document.querySelectorAll('.product-page').forEach(p => p.classList.remove('active'));
-        const map = { 'massage':'productMassage','spa':'productSpa','hydromassage':'productHydromassage','cosmetology':'productCosmetology','face':'productFace','other':'productOther' };
-        document.getElementById(map[productId]).classList.add('active');
-        setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 30);
-    }
-    function showMainPage() {
-        document.querySelectorAll('.product-page').forEach(p => p.classList.remove('active'));
-        document.getElementById('mainPage').classList.remove('hide');
-        setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 30);
-    }
-    function scrollToServices() { setTimeout(() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' }), 200); }
-    function scrollToContact() { setTimeout(() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }), 200); }
-    function scrollToBooking() { setTimeout(() => document.getElementById('booking').scrollIntoView({ behavior: 'smooth' }), 200); }
+    // Анимация появления при скролле
+    const animatedElements = document.querySelectorAll('.service-card, .features-section, .reviews-section, .extra-services, .contact');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Можно наблюдать дальше, но можно и отключить после появления
+                // observer.unobserve(entry.target); // если хотим отключить после первого раза
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }); // чуть чувствительнее
+    
+    animatedElements.forEach(el => observer.observe(el));
+    
+    // Навигация
+    function scrollToServices() { document.getElementById('services').scrollIntoView({ behavior: 'smooth' }); }
+    function scrollToFeatures() { document.getElementById('features').scrollIntoView({ behavior: 'smooth' }); }
+    function scrollToReviews() { document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' }); }
+    function scrollToContact() { document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); }
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    
+    // Для карточек услуг (при клике можно добавить переход, если нужно)
+    // Пока оставим без перехода, но можно добавить позже
 </script>
 </body>
 </html>
