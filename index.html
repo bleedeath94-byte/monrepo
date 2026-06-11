@@ -88,8 +88,8 @@
         .contact-info h3 { font-size: 2rem; margin-bottom: 28px; color: #1a6e5c; }
         .contact-details p { margin: 18px 0; display: flex; align-items: center; gap: 14px; color: #4a7b6a; font-size: 1rem; }
         .contact-form h3 { font-size: 2rem; margin-bottom: 20px; color: #1a6e5c; }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 14px 20px; margin: 12px 0; border: 1px solid #c8dccf; border-radius: 60px; font-family: inherit; background: #ffffff; color: #2d4a3e; }
-        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #1a6e5c; }
+        .contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 14px 20px; margin: 12px 0; border: 1px solid #c8dccf; border-radius: 60px; font-family: inherit; background: #ffffff; color: #2d4a3e; }
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { outline: none; border-color: #1a6e5c; }
         .contact-form button { background: #1a6e5c; color: white; border: none; padding: 12px 32px; border-radius: 60px; font-weight: 600; cursor: pointer; transition: 0.2s; margin-top: 8px; }
         .contact-form button:hover { background: #23967e; }
         footer { text-align: center; padding: 36px; font-size: 0.8rem; color: #8eb3a3; border-top: 1px solid #c8dccf; }
@@ -218,12 +218,22 @@
                 </div>
                 <div id="booking" class="contact-form">
                     <h3>Онлайн-запись</h3>
-                    <input type="text" placeholder="Ваше имя">
-                    <input type="tel" placeholder="Телефон">
-                    <input type="text" placeholder="Услуга или пожелания">
-                    <textarea rows="3" placeholder="Дата и время..."></textarea>
-                    <button onclick="alert('Спасибо! МОНРЕПО свяжется с вами.')">Отправить заявку</button>
-                    <p style="font-size:12px; margin-top:14px; opacity:0.7;">Ответ в течение 20 минут</p>
+                    <form id="tgForm">
+                        <input type="text" id="userName" placeholder="Ваше имя" required>
+                        <input type="tel" id="userPhone" placeholder="Телефон" required>
+                        <select id="userService" required>
+                            <option value="" disabled selected>Выберите услугу</option>
+                            <option>Массаж тела</option>
+                            <option>SPA-программы</option>
+                            <option>Гидромассаж</option>
+                            <option>Косметология</option>
+                            <option>Архитектура лица</option>
+                            <option>Прочие услуги</option>
+                        </select>
+                        <input type="text" id="userDate" placeholder="Желаемая дата и время">
+                        <button type="submit">Отправить заявку</button>
+                    </form>
+                    <div id="formStatus" style="font-size:12px; margin-top:14px;"></div>
                 </div>
             </div>
         </div>
@@ -260,27 +270,63 @@
     function scrollToContact() { setTimeout(() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }), 200); }
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
     
-    // Новая рабочая функция для кнопки "Записаться онлайн"
     function scrollToBookingDirect() {
-        // Сначала показываем главную страницу (если мы на странице услуги)
         if (document.querySelector('.product-page.active')) {
             showMainPage();
             setTimeout(() => {
                 const form = document.getElementById('booking');
-                if (form) {
-                    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                } else {
-                    document.querySelector('.contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+                if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 350);
         } else {
             const form = document.getElementById('booking');
-            if (form) {
-                form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-                document.querySelector('.contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
+            if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
+    }
+
+    // ========== ОТПРАВКА В TELEGRAM ==========
+    // 👇👇👇 СЮДА ВСТАВЬ СВОИ ДАННЫЕ 👇👇👇
+    const BOT_TOKEN = '8777546018:AAFt7MRFrtWFLYJcsNVCnJrKkT3Dh4nnYbo';   // Замени на токен от @BotFather
+    const CHAT_ID = '6726660968';       // Замени на ID от @userinfobot
+    // 👆👆👆
+
+    const form = document.getElementById('tgForm');
+    if (form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('userName').value.trim();
+            const phone = document.getElementById('userPhone').value.trim();
+            const service = document.getElementById('userService').value;
+            const date = document.getElementById('userDate').value.trim() || 'не указано';
+            
+            const statusDiv = document.getElementById('formStatus');
+            statusDiv.innerHTML = '⏳ Отправка...';
+            statusDiv.style.color = '#1a6e5c';
+            
+            const message = `🆕 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n💆‍♂️ Услуга: ${service}\n📅 Дата/время: ${date}`;
+            
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+            
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+                });
+                
+                if (response.ok) {
+                    statusDiv.innerHTML = '✅ Заявка отправлена! Мы свяжемся с вами в течение 20 минут.';
+                    statusDiv.style.color = '#2e7d32';
+                    form.reset();
+                } else {
+                    statusDiv.innerHTML = '❌ Ошибка отправки. Попробуйте позвонить нам по телефону.';
+                    statusDiv.style.color = '#c62828';
+                }
+            } catch (error) {
+                statusDiv.innerHTML = '❌ Ошибка сети. Попробуйте ещё раз.';
+                statusDiv.style.color = '#c62828';
+            }
+        });
     }
 </script>
 </body>
